@@ -5,111 +5,102 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Aletheia's Quest</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --parchment: #f4ecd8;
-    --parchment-deep: #e8dcb8;
-    --ink: #1d1a14;
-    --aegean: #2a3e57;
-    --wine: #6b1f1f;
-    --olive: #6a6a3a;
+    --bg: #1a1410;
+    --bg-soft: #221a14;
+    --parchment: #efe2c4;
+    --gold: #c9a85a;
+    --gold-bright: #e6c878;
+    --wine: #7a2622;
+    --ink: #efe2c4;
+    --muted: #8a7560;
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
   body {
-    font-family: 'EB Garamond', Garamond, 'Times New Roman', serif;
-    background: var(--parchment);
-    color: var(--ink);
-    line-height: 1.65;
-    font-size: 19px;
+    font-family: 'EB Garamond', Garamond, serif;
+    background: var(--bg);
     background-image:
-      radial-gradient(rgba(120,100,60,0.07) 1px, transparent 1px),
-      radial-gradient(rgba(120,100,60,0.05) 1px, transparent 1px);
-    background-size: 30px 30px, 60px 60px;
-    background-position: 0 0, 15px 15px;
+      radial-gradient(ellipse at top, rgba(122,38,34,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse at bottom, rgba(201,168,90,0.08) 0%, transparent 60%);
+    color: var(--ink);
+    line-height: 1.7;
+    font-size: 19px;
+    min-height: 100vh;
   }
-  .wrap {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 4rem 2rem 6rem;
-  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 4rem 2rem 6rem; }
   .meander {
-    height: 28px;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='28' viewBox='0 0 56 28'><path fill='none' stroke='%231d1a14' stroke-width='2' d='M0 26 L0 6 L14 6 L14 20 L8 20 L8 12 L20 12 L20 24 L28 24 L28 2 L48 2 L48 22 L40 22 L40 10 L56 10'/></svg>");
+    height: 24px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='24' viewBox='0 0 56 24'><path fill='none' stroke='%23c9a85a' stroke-width='1.5' d='M0 22 L0 4 L14 4 L14 18 L8 18 L8 10 L20 10 L20 22 L28 22 L28 2 L48 2 L48 20 L40 20 L40 8 L56 8'/></svg>");
     background-repeat: repeat-x;
     background-position: center;
-    opacity: 0.55;
-    margin: 1rem 0 2rem;
+    margin: 1.5rem 0 2rem;
+    opacity: 0.7;
   }
   header { text-align: center; margin-bottom: 1rem; }
-  .greek {
+  h1.title {
     font-family: 'Cinzel', serif;
-    font-size: 4rem;
-    letter-spacing: 0.18em;
-    color: var(--wine);
-    margin: 0;
-    line-height: 1;
-  }
-  .latin {
-    font-family: 'Cinzel', serif;
-    font-size: 1.8rem;
+    font-weight: 900;
+    font-size: 3.6rem;
     letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin: 1.2rem 0 0.4rem;
-    color: var(--ink);
+    color: var(--gold-bright);
+    margin: 0.5rem 0 0.4rem;
+    text-shadow: 0 2px 18px rgba(201,168,90,0.25);
   }
   .subtitle {
-    font-style: italic;
-    color: var(--olive);
-    font-size: 1.15rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--muted);
     margin: 0;
   }
-  blockquote {
+  .prologue {
+    text-align: center;
     font-style: italic;
-    color: var(--aegean);
-    border-left: 3px solid var(--wine);
-    padding: 0.6rem 1.4rem;
-    margin: 2.5rem 0;
-    font-size: 1.05rem;
-  }
-  blockquote .who {
-    display: block;
-    font-style: normal;
-    text-align: right;
-    margin-top: 0.5rem;
-    color: var(--ink);
-    font-variant: small-caps;
-    letter-spacing: 0.08em;
-    font-size: 0.95rem;
+    color: var(--parchment);
+    font-size: 1.18rem;
+    max-width: 580px;
+    margin: 2.5rem auto;
+    line-height: 1.7;
   }
   h2 {
     font-family: 'Cinzel', serif;
     text-transform: uppercase;
-    letter-spacing: 0.18em;
-    font-size: 1.1rem;
-    color: var(--wine);
-    margin: 3rem 0 0.6rem;
-    border-bottom: 1px solid rgba(107,31,31,0.3);
-    padding-bottom: 0.3rem;
+    letter-spacing: 0.28em;
+    font-size: 0.95rem;
+    color: var(--gold);
+    margin: 3rem 0 0.8rem;
+    border-bottom: 1px solid rgba(201,168,90,0.25);
+    padding-bottom: 0.4rem;
   }
   p { margin: 0.8rem 0; }
-  ul { padding-left: 1.4rem; }
-  li { margin: 0.35rem 0; }
-  a { color: var(--aegean); text-decoration: underline solid rgba(42,62,87,0.4); }
-  a:hover { text-decoration: underline solid var(--aegean); }
+  ul { padding-left: 1.2rem; list-style: none; }
+  li { margin: 0.5rem 0; position: relative; padding-left: 1rem; }
+  li::before { content: "❖"; color: var(--gold); position: absolute; left: -0.2rem; font-size: 0.85rem; top: 0.2rem; }
+  a { color: var(--gold-bright); text-decoration: underline solid rgba(201,168,90,0.3); }
+  a:hover { color: #fff; text-decoration-color: var(--gold-bright); }
+  strong { color: var(--gold-bright); font-weight: 600; }
   .status {
     text-align: center;
-    font-style: italic;
-    color: var(--olive);
-    margin: 1.5rem 0 0;
-    font-size: 1rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--wine);
+    margin: 1.5rem 0;
+    opacity: 0.9;
   }
   footer {
     margin-top: 4rem;
     text-align: center;
-    font-size: 0.95rem;
-    color: var(--olive);
+    color: var(--muted);
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
   }
 </style>
 </head>
@@ -118,50 +109,15 @@
 
 <header>
   <div class="meander"></div>
-  <h1 class="greek">ἀλήθεια</h1>
-  <p class="latin">Aletheia's Quest</p>
+  <h1 class="title">ALETHEIA'S QUEST</h1>
   <p class="subtitle">An AI Lie Detection Challenge &middot; NeurIPS 2026</p>
   <div class="meander"></div>
 </header>
 
-<p class="status">Under review for the NeurIPS 2026 Competition Track.<br>
-The full site launches within two weeks of acceptance.</p>
+<p>More infos soon</p>
 
-<blockquote>
-  Truth is the unconcealment of what was hidden.<br>
-  <span class="who">— after Heidegger, on Ἀλήθεια</span>
-</blockquote>
-
-<p><strong>Aletheia</strong> (ἀλήθεια) — "unconcealment", the un-forgetting of what was hidden. In Greek myth, the river Lethe steals memory; Aletheia restores it. Our quest is to recover, from a language model's internals and behavior, what it has chosen to conceal.</p>
-
-<h2>The Quest</h2>
-<p>Detection teams build lie detectors with both black-box and white-box access to a suite of LLMs induced to lie in different ways. Datasets are produced in advance by nine independent dataset-creation teams. The competition runs on the National Deep Inference Fabric (NDIF) via NNsight — no local GPU required.</p>
-
-<h2>The Calendar</h2>
-<ul>
-  <li><strong>20 May 2026</strong> — Competition announced</li>
-  <li><strong>14 June 2026</strong> — Applications close</li>
-  <li><strong>24 June 2026</strong> — Participants selected</li>
-  <li><strong>29 June – 26 July 2026</strong> — Competition window</li>
-  <li><strong>7 August 2026</strong> — Final results</li>
-</ul>
-
-<h2>The Council</h2>
-<p>Organized by Cadenza Labs, NDIF (Northeastern University), and Schmidt Sciences.<br>
-Advisory board drawn from Anthropic, FAR&nbsp;AI, the UK AI Security Institute, and Kaggle / OpenAI.</p>
-
-<h2>Background Scrolls</h2>
-<ul>
-  <li><a href="https://arxiv.org/abs/2511.16035">Liars' Bench</a> — Kretschmar et al., 2025</li>
-  <li><a href="https://alignment.anthropic.com/2025/honesty-elicitation/">Evaluating honesty and lie detection techniques</a> — Wang et al., 2025</li>
-  <li><a href="https://arxiv.org/abs/2407.14561">NNsight &amp; NDIF</a> — Fiotto-Kaufman et al., 2024</li>
-</ul>
-
-<h2>Send a Messenger</h2>
+<h2>Contact</h2>
 <p><a href="mailto:competition@cadenzalabs.org">competition@cadenzalabs.org</a></p>
-
-<div class="meander" style="margin-top: 3rem;"></div>
-<footer>&copy; 2026 Cadenza Labs &middot; <span style="font-variant: small-caps; letter-spacing: 0.08em;">veritas vincit</span></footer>
 
 </div>
 </body>
