@@ -2,7 +2,7 @@
 
 ## Overview
 
-Detection teams build lie detectors with black-box and white-box access to a suite of LLMs induced to lie in different ways. Datasets are produced in advance by nine independent dataset-creation teams. The competition runs on the National Deep Inference Fabric (NDIF) via NNsight — no local GPU required.
+Detection teams build lie detectors with black-box and white-box access to a suite of LLMs induced to lie in different ways. Datasets are produced in advance by nine independent dataset-creation teams. The competition runs on the National Deep Inference Fabric (NDIF) via NNsight.
 
 More infos soon. 
 
