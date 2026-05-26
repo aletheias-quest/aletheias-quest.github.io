@@ -93,6 +93,48 @@
     margin: 1.5rem 0;
     opacity: 0.9;
   }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0 1.5rem;
+    font-size: 0.95rem;
+  }
+  th {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border-bottom: 1px solid rgba(201,168,90,0.35);
+    padding: 0.4rem 0.8rem 0.6rem;
+    text-align: left;
+  }
+  td {
+    padding: 0.55rem 0.8rem;
+    border-bottom: 1px solid rgba(201,168,90,0.1);
+    color: var(--ink);
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  td:first-child {
+    white-space: nowrap;
+    color: var(--gold);
+    font-weight: 500;
+    min-width: 90px;
+  }
+  .prize-tier {
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+    margin: 0.4rem 0;
+  }
+  .prize-amount {
+    font-family: 'Cinzel', serif;
+    font-size: 0.82rem;
+    color: var(--gold-bright);
+    letter-spacing: 0.05em;
+    min-width: 70px;
+  }
   footer {
     margin-top: 4rem;
     text-align: center;
@@ -115,13 +157,99 @@
 </header>
 
 <p>
-Detection teams build lie detectors with black-box and white-box access to a suite of LLMs induced to lie in different ways. Datasets are produced in advance by nine independent dataset-creation teams. The competition runs on the National Deep Inference Fabric (NDIF) via NNsight — no local GPU required.
-<br /> <br />
-More infos soon.
+In this challenge led by <strong>Cadenza Labs</strong>, <strong>NDIF</strong>, and <strong>Schmidt Sciences</strong>, participating teams build lie detectors with black-box and white-box access to a suite of LLMs induced to lie in different ways. Datasets are produced in advance by nine independent dataset-creation teams. The competition runs on the National Deep Inference Fabric (NDIF) via NNsight — no local GPU required.
+</p>
+<p>
+Teams with the best-performing and most innovative methods will receive monetary awards, recognition in our competition report, and invitations to our in-person convening in <strong>Boston on August 25th</strong>.
 </p>
 
+<h2>Timeline</h2>
+<table>
+  <thead>
+    <tr><th>Date</th><th>Milestone</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>May 28</td><td>Competition announced</td></tr>
+    <tr><td>June 14</td><td>Applications close</td></tr>
+    <tr><td>June 24</td><td>Accepted teams notified</td></tr>
+    <tr><td>June 29</td><td>Competition opens</td></tr>
+    <tr><td>July 26</td><td>Submission deadline</td></tr>
+    <tr><td>August 7</td><td>Final results announced</td></tr>
+    <tr><td>August 25</td><td>Invite-only awards event in Boston</td></tr>
+  </tbody>
+</table>
+
+<h2>Apply</h2>
+<p>
+Organizers will rate lie detection team applications on a 1–4 scale across three criteria:
+</p>
+<ul>
+  <li><strong>Technical approach</strong> — strength and clarity of your proposed lie detection method</li>
+  <li><strong>Interdisciplinary composition</strong> — breadth of relevant expertise across team members</li>
+  <li><strong>Diversity and access</strong> — edge cases may favor underrepresented groups and early-career researchers</li>
+</ul>
+<p>
+<strong>Apply on Airtable by June 14th.</strong>
+</p>
+
+<h2>Rules</h2>
+<p>
+Develop a lie detector and compete to score statements made by different model organisms in held-out test datasets, ranked by AUROC. A statement counts as a lie if the model outputs something it believes to be false. Your detector should generalize across lying scenarios and model organisms.
+</p>
+<p><strong>What you can do</strong></p>
+<ul>
+  <li>Query model organisms and a trusted model hosted on NDIF via NNsight</li>
+  <li>Read and write activations and tokens at any layer or position</li>
+  <li>Access model weights and LoRA adapters on HuggingFace</li>
+  <li>Develop and validate methods against organizer-provided validation datasets or your own</li>
+  <li>Adapt parameters (probe layer, hyperparameters, prompt phrasing) per organism, as long as choices are motivated by architectural constraints, method reasoning, or validation performance</li>
+</ul>
+<p><strong>What you cannot do</strong></p>
+<ul>
+  <li>Access model organism design documents, training data, or held-out test datasets</li>
+  <li>Generate or select prompts/parameters based on organism-specific behavioral analysis or weight/adapter inspection</li>
+  <li>Submit fundamentally different detection logic for different organisms (per-organism parameter tweaks must be documented and justified in your report)</li>
+  <li>Make external API calls at inference time — all inference must go through the NDIF API</li>
+  <li>Interact with fine-tuned versions of hosted organisms at inference time</li>
+</ul>
+<p><strong>Submission</strong></p>
+<p>
+Submit a single Jupyter notebook containing one detector per model organism, with a report section explaining any per-organism parameter choices, by committing to the competition GitHub. Organizers will run it in a controlled NDIF environment against held-out test data. There will be no public leaderboard during the competition.
+</p>
+
+<h2>Scoring</h2>
+<p>
+Each submission is scored per (model organism, dataset) unit using <strong>worst-rank AUROC</strong>. AUROC is threshold-free and robust to small class-imbalance differences across datasets. Your final ranking is determined by your worst per-scenario rank across all units — this rewards detectors that perform consistently well everywhere, rather than ones that excel in easy scenarios and fail elsewhere.
+</p>
+<p>
+Raw per-scenario AUROCs with confidence intervals and full rank vectors are reported alongside the headline score.
+</p>
+<p>
+A judging panel handles rule enforcement and awards three special-category prizes: <strong>Scientific Novelty</strong>, <strong>Scalability</strong> (low inference compute, fewer privileged affordances), and <strong>Generalizability</strong> (evidence the method extends to domains where automated judging breaks down).
+</p>
+
+<h2>Prizes</h2>
+<p><strong>Highest-ranking methods — $30,000 total</strong></p>
+<p style="color:var(--muted); font-size:0.9rem; margin-top:-0.4rem;">Minimum requirement: outperform each of the 4 baseline methods</p>
+<ul>
+  <li><span class="prize-amount">#1 — $15,000</span></li>
+  <li><span class="prize-amount">#2 — $10,000</span></li>
+  <li><span class="prize-amount">#3 — $7,000</span></li>
+  <li><span class="prize-amount">#4–5 — $4,000 each</span></li>
+  <li><span class="prize-amount">#6–10 — $2,000 each</span></li>
+</ul>
+<p><strong>Judge's awards — $5,000 each</strong></p>
+<ul>
+  <li>Scientific Novelty prize</li>
+  <li>Scalability prize</li>
+  <li>Generalizability prize</li>
+  <li>Interdisciplinary prize</li>
+</ul>
+
 <h2>Contact</h2>
-<p><a href="mailto:competition@cadenzalabs.org">competition@cadenzalabs.org</a></p>
+<p>
+Questions? Reach us on the <strong>competition Discord</strong> or at <a href="mailto:competition@cadenzalabs.org">competition@cadenzalabs.org</a>. Rule clarifications and deadline updates are posted to the Discord announcements channel and this website.
+</p>
 
 </div>
 </body>
