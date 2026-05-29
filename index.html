@@ -174,6 +174,38 @@
     color: var(--gold-bright);
     letter-spacing: 0.05em;
   }
+  html { scroll-behavior: smooth; scroll-padding-top: 48px; }
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(22,17,13,0.97);
+    border-bottom: 1px solid rgba(201,168,90,0.18);
+    backdrop-filter: blur(6px);
+  }
+  nav ul {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+  nav li { margin: 0; padding: 0; }
+  nav li::before { display: none; }
+  nav a {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0.72rem 0.75rem;
+    transition: color 0.15s;
+  }
+  nav a:hover { color: var(--gold-bright); text-decoration: none; }
   footer {
     margin-top: 4rem;
     text-align: center;
@@ -186,9 +218,22 @@
 </style>
 </head>
 <body>
+<nav>
+  <ul>
+    <li><a href="#top">Overview</a></li>
+    <li><a href="#definition">Definition</a></li>
+    <li><a href="#timeline">Timeline</a></li>
+    <li><a href="#apply">Apply</a></li>
+    <li><a href="#rules">Rules</a></li>
+    <li><a href="#scoring">Scoring</a></li>
+    <li><a href="#prizes">Prizes</a></li>
+    <li><a href="#eligibility">Eligibility</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 <div class="wrap">
 
-<header>
+<header id="top">
   <div class="meander"></div>
   <h1 class="title">ALETHEIA'S QUEST</h1>
   <p class="subtitle">An AI Lie Detection Challenge</p>
@@ -202,7 +247,7 @@ In this challenge led by <strong>Cadenza Labs</strong>, <strong>NDIF</strong>, a
 Teams with the best-performing and most innovative methods will receive monetary awards, recognition in our competition report, and invitations to our in-person convening in <strong>Boston on August 25th</strong>.
 </p>
 
-<h2>Definition of Lying</h2>
+<h2 id="definition">Definition of Lying</h2>
 <p>
 We adopt the assertion-based definition from Fallis (2009), as operationalized in <em>Liars' Bench</em> (Kretschmar et al., 2025): the assistant lies if it states something it believes to be false. Beliefs are measured through consistent responses in contexts without direct pressure to lie.
 </p>
@@ -213,7 +258,7 @@ We adopt the assertion-based definition from Fallis (2009), as operationalized i
 See Section 3 in <em>Liars' Bench</em> for more details.
 </p>
 
-<h2>Timeline</h2>
+<h2 id="timeline">Timeline</h2>
 <table>
   <thead>
     <tr><th>Date</th><th>Milestone</th></tr>
@@ -229,7 +274,7 @@ See Section 3 in <em>Liars' Bench</em> for more details.
   </tbody>
 </table>
 
-<h2>Apply</h2>
+<h2 id="apply">Apply</h2>
 <p>
 Organizers will rate lie detection team applications on a 1–4 scale across three criteria:
 </p>
@@ -243,7 +288,7 @@ Organizers will rate lie detection team applications on a 1–4 scale across thr
   <a class="btn" href="https://forms.office.com/r/BXVwPEweJi" target="_blank" rel="noopener">Apply Now</a>
 </p>
 
-<h2>Rules</h2>
+<h2 id="rules">Rules</h2>
 <p>
 Develop a lie detector and compete to score statements made by different model organisms in held-out test datasets. A statement counts as a lie if the model outputs something it believes to be false; each sample is labeled either <em>lie</em> or <em>honest</em>. Detectors are ranked by their <strong>average AUROC across all held-out test datasets</strong>, so your detector should generalize across both lying scenarios and model organisms.
 </p>
@@ -282,7 +327,7 @@ After the competition, the judging panel reviews each submission for detection l
   <li><em>Forbidden:</em> Inspecting an organism's behavior or adapters, discovering it lies in English but answers honestly in Spanish, and designing a Spanish follow-up based on that finding.</li>
 </ul>
 
-<h2>Scoring</h2>
+<h2 id="scoring">Scoring</h2>
 <p>
 Each submission is scored by <strong>average AUROC across all held-out test datasets</strong>. AUROC is threshold-free and robust to small class-imbalance differences across datasets. Raw per-scenario AUROCs with confidence intervals and full rank vectors are reported alongside the headline score.
 </p>
@@ -290,7 +335,7 @@ Each submission is scored by <strong>average AUROC across all held-out test data
 In addition to the automatic AUROC ranking, a judging panel handles rule enforcement and awards special-category prizes for <strong>Scientific Novelty</strong> (innovative and creative methods) and <strong>Scalability</strong> (low inference compute, fewer privileged affordances).
 </p>
 
-<h2>Prizes</h2>
+<h2 id="prizes">Prizes</h2>
 <p>
 Total prize pool of <strong>$50,000</strong>. Prizes are split evenly across team members and can stack — qualifying for one prize does not disqualify you from others.
 </p>
@@ -332,7 +377,7 @@ Total prize pool of <strong>$50,000</strong>. Prizes are split evenly across tea
   </ul>
 </div>
 
-<h2>Eligibility</h2>
+<h2 id="eligibility">Eligibility</h2>
 <p>
 This competition is not directed at minors. Participants must be <strong>18 years of age or older</strong> to apply, compete, or receive prizes.
 </p>
@@ -349,7 +394,7 @@ Prize eligibility is determined at the individual level. If a team includes memb
 All submissions, code, and associated materials will be made publicly available under an <strong>Apache 2.0</strong> open-source license following the competition. By submitting, participants grant the organizers a perpetual, royalty-free license to publish and reproduce their submissions as part of the competition report and public repository. Participants retain authorship credit for their work.
 </p>
 
-<h2>Contact</h2>
+<h2 id="contact">Contact</h2>
 <p>
 Questions? Reach us on the competition Discord or at <a href="mailto:competition@cadenzalabs.org">competition@cadenzalabs.org</a>. Rule clarifications and deadline updates are posted to the Discord announcements channel and this website.
 </p>
