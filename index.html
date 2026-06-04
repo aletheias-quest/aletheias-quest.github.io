@@ -222,47 +222,6 @@
   .nav-hamburger:hover span:nth-child(2),
   nav.open .nav-hamburger span:nth-child(2) { width: 22px; }
 
-  @media (max-width: 600px) {
-    h1.title {
-      font-size: clamp(1.6rem, 6.5vw, 3.6rem);
-      letter-spacing: 0.05em;
-    }
-    .subtitle {
-      font-size: 0.72rem;
-      letter-spacing: 0.15em;
-    }
-    .wrap { padding: 2.5rem 1.2rem 4rem; }
-    .prologue { font-size: 1rem; }
-    body { font-size: 17px; }
-    header img { height: 70px !important; }
-    table { font-size: 0.88rem; }
-    td, th { padding: 0.45rem 0.5rem; }
-
-    .nav-hamburger { display: flex; }
-
-    nav ul {
-      display: none;
-      flex-direction: column;
-      width: 100%;
-      padding: 0.25rem 0 0.5rem;
-      border-top: 1px solid rgba(201,168,90,0.18);
-    }
-    nav.open ul { display: flex; }
-    nav ul li { width: 100%; }
-    nav a {
-      font-size: 0.72rem;
-      letter-spacing: 0.18em;
-      padding: 0.75rem 1.5rem;
-      border-bottom: 1px solid rgba(201,168,90,0.07);
-    }
-    nav ul li:last-child a { border-bottom: none; }
-
-    nav > ul {
-      flex-wrap: wrap;
-      width: 100%;
-      min-width: unset;
-    }
-  }
   .logos-band {
     position: relative;
     left: 50%;
@@ -387,6 +346,48 @@
     transition: color 0.15s;
   }
   nav a:hover { color: var(--gold-bright); text-decoration: none; }
+
+  @media (max-width: 600px) {
+    h1.title {
+      font-size: clamp(1.6rem, 6.5vw, 3.6rem);
+      letter-spacing: 0.05em;
+    }
+    .subtitle {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+    }
+    .wrap { padding: 2.5rem 1.2rem 4rem; }
+    .prologue { font-size: 1rem; }
+    body { font-size: 17px; }
+    header img { height: 70px !important; }
+    table { font-size: 0.88rem; }
+    td, th { padding: 0.45rem 0.5rem; }
+
+    .nav-hamburger { display: flex; }
+
+    nav { overflow-x: unset; }
+    nav ul {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      padding: 0.25rem 0 0.5rem;
+      border-top: 1px solid rgba(201,168,90,0.18);
+      width: 100%;
+      min-width: unset;
+      max-width: unset;
+      margin: 0;
+    }
+    nav.open ul { display: flex; }
+    nav ul li { width: 100%; }
+    nav a {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      padding: 0.75rem 1.5rem;
+      border-bottom: 1px solid rgba(201,168,90,0.07);
+    }
+    nav ul li:last-child a { border-bottom: none; }
+  }
+
   footer {
     margin-top: 4rem;
     text-align: center;
