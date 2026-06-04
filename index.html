@@ -185,19 +185,37 @@
     letter-spacing: 0.05em;
   }
   html { scroll-behavior: smooth; scroll-padding-top: 48px; }
-  .logos {
+  .logos-band {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
     width: 100vw;
+    margin: 2rem 0 2.5rem;
+    background: none;
+  }
+.logos-meander {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 24px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='24' viewBox='0 0 56 24'><path fill='none' stroke='%23c9a85a' stroke-width='1.5' d='M0 22 L0 4 L14 4 L14 18 L8 18 L8 10 L20 10 L20 22 L28 22 L28 2 L48 2 L48 20 L40 20 L40 8 L56 8'/></svg>");
+    background-repeat: repeat-x;
+    background-position: center;
+    opacity: 0.7;
+    margin: 0;
+  }
+  .logos {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     gap: 2.5rem;
-    margin: 2rem 0 2.5rem;
-    padding: 1.6rem 2rem;
-    background: #f0e6cc;
+    padding: 2.2rem 2rem;
+  }
+  .logos + .logos {
+    padding-top: 0;
   }
   .logos-label {
     width: 100%;
@@ -206,7 +224,7 @@
     font-size: 0.68rem;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: #4a3525;
+    color: var(--parchment);
     font-weight: 700;
     margin-bottom: 0.5rem;
   }
@@ -222,6 +240,7 @@
     height: 36px;
     width: auto;
     display: block;
+    filter: brightness(0) invert(1) sepia(0.25) saturate(0.6);
   }
   .team-label {
     font-family: 'Cinzel', serif;
@@ -308,7 +327,6 @@
     <li><a href="#timeline">Timeline</a></li>
     <li><a href="#apply">Apply</a></li>
     <li><a href="#rules">Rules</a></li>
-    <li><a href="#scoring">Scoring</a></li>
     <li><a href="#prizes">Prizes</a></li>
     <li><a href="#organizers">Organizers</a></li>
     <li><a href="#eligibility">Eligibility</a></li>
@@ -321,6 +339,7 @@
   <div class="meander"></div>
   <h1 class="title">ALETHEIA'S QUEST</h1>
   <p class="subtitle">An AI Lie Detection Challenge</p>
+  <p class="subtitle">Summer 2026</p>
   <div class="meander"></div>
 </header>
 
@@ -328,19 +347,32 @@
 Ἀλήθεια, Aletheia, is the ancient Greek spirit of truth. Her name means <em>un-hiddenness</em>: that which has not been concealed. She stands against Lethe, river of oblivion, and against the lie, the utterance that buries what is known. This competition takes her name, and her question: when a language model speaks, does it reveal, or does it conceal?
 </p>
 
-<div class="logos">
-  <span class="logos-label">Organized by</span>
-  <a href="https://cadenzalabs.org" target="_blank" rel="noopener"><img src="https://cadenza-labs.github.io/red-team-rfp/Cadenza_Logo.svg" alt="Cadenza Labs"></a>
-  <a href="https://ndif.us" target="_blank" rel="noopener"><img src="https://ndif.us/images/NDIF_Acr_color.png" alt="NDIF"></a>
-  <a href="https://www.northeastern.edu" target="_blank" rel="noopener"><img src="https://brand.northeastern.edu/wp-content/uploads/2025/01/NU_RGB_Notched-N_wordmark_RB-1-2.svg" alt="Northeastern University"></a>
-  <a href="https://www.schmidtsciences.org/" target="_blank" rel="noopener"><img src="https://www.schmidtsciences.org/wp-content/themes/schmidt-sciences/src/images/logo.svg" alt="Schmidt Sciences"></a>
+<p style="text-align:center; margin: 1.5rem 0 2rem;">
+  <a class="btn" href="https://forms.office.com/r/BXVwPEweJi" target="_blank" rel="noopener">Apply Now</a>
+  <a class="btn btn-outline" href="https://discord.gg/4NX3sUC4ge" target="_blank" rel="noopener">Join Discord</a>
+</p>
+
+<div class="logos-meander"></div>
+<div class="logos-band">
+  <div class="logos">
+    <span class="logos-label">Organized by</span>
+    <a href="https://cadenzalabs.org" target="_blank" rel="noopener"><img src="cadenza-logo-ivory.svg" alt="Cadenza Labs" style="height:24px; filter:none;"></a>
+    <a href="https://ndif.us" target="_blank" rel="noopener"><img src="https://ndif.us/images/NDIF_Acr_color.png" alt="NDIF"></a>
+    <a href="https://www.northeastern.edu" target="_blank" rel="noopener"><img src="https://brand.northeastern.edu/wp-content/uploads/2025/01/NU_RGB_Notched-N_wordmark_RB-1-2.svg" alt="Northeastern University"></a>
+  </div>
+  <div class="logos">
+    <span class="logos-label">Supported by</span>
+    <a href="https://www.schmidtsciences.org/" target="_blank" rel="noopener"><img src="https://www.schmidtsciences.org/wp-content/themes/schmidt-sciences/src/images/logo.svg" alt="Schmidt Sciences"></a>
+    <a href="https://aws.amazon.com/" target="_blank" rel="noopener"><img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="Amazon Web Services"></a>
+  </div>
 </div>
+<div class="logos-meander"></div>
 
 <p>
 In this challenge led by <strong>Cadenza Labs</strong>, <strong>NDIF</strong>, and <strong>Schmidt Sciences</strong>, participating teams will build lie detectors with black-box and white-box access to a suite of LLMs induced to lie in different ways. Datasets are produced in advance by nine independent dataset-creation teams. The competition runs on the National Deep Inference Fabric (NDIF) via NNsight — no local GPU required.
 </p>
 <p>
-Teams with the best-performing and most innovative methods will receive monetary awards, recognition in our competition report, and invitations to our in-person convening in <strong>Boston on August 25th</strong>.
+Teams with the best-performing and most innovative methods will receive monetary awards, recognition in our competition report, and invitations to our in-person convening in <strong>Boston on August 25th, 2026</strong>.
 </p>
 
 <h3>Definition of Lying</h3>
@@ -354,32 +386,25 @@ We adopt the assertion-based definition from Fallis (2009), as operationalized i
 See Section 3 in <a href="https://arxiv.org/abs/2511.16035" target="_blank" rel="noopener"><em>Liars' Bench</em></a> for more details.
 </p>
 
-<h2 id="timeline">Timeline</h2>
+<h2 id="timeline">Timeline <span style="font-size:0.6em; font-weight:normal; letter-spacing:0.1em; opacity:0.7">(Summer 2026)</span></h2>
 <table>
   <thead>
     <tr><th>Date</th><th>Milestone</th></tr>
   </thead>
   <tbody>
-    <tr><td>June 1</td><td>Competition announced</td></tr>
-    <tr><td>June 14</td><td>Applications close</td></tr>
-    <tr><td>June 24</td><td>Accepted teams notified (rolling)</td></tr>
-    <tr><td>June 29</td><td>Competition opens</td></tr>
+    <tr><td>June 4</td><td>Applications open (rolling admissions)</td></tr>
+    <tr><td>June 21</td><td>Applications close</td></tr>
+    <tr><td>June 29</td><td>Competition begins</td></tr>
     <tr><td>July 26</td><td>Submission deadline</td></tr>
-    <tr><td>August 7</td><td>Final results announced</td></tr>
     <tr><td>August 25</td><td>Invite-only awards event in Boston</td></tr>
   </tbody>
 </table>
 
 <h2 id="apply">Apply</h2>
 <p>
-Organizers will rate lie detection team applications on a 1–4 scale across three criteria:
+Organizers will rate lie detection team applications by their team and technical approach. Organizers will also provide teams with API access to the NDIF infrastructure on a needs-based basis.
 </p>
-<ul>
-  <li><strong>Technical approach</strong> — strength and clarity of your proposed lie detection method</li>
-  <li><strong>Interdisciplinary composition</strong> — breadth of relevant expertise across team members</li>
-  <li><strong>Enablement and access</strong> — edge cases may favor underrepresented groups and early-career researchers</li>
-</ul>
-<p>Applications close <strong>June 14th</strong>.</p>
+<p>Applications close <strong>June 21st</strong>.</p>
 <p>
   <a class="btn" href="https://forms.office.com/r/BXVwPEweJi" target="_blank" rel="noopener">Apply Now</a>
 </p>
@@ -390,88 +415,21 @@ Develop a lie detector and compete to score statements made by different model o
 </p>
 <p><strong>Competition tracks</strong></p>
 <ul>
-  <li><strong>Overall</strong> — prizes for the best-performing detector regardless of method</li>
   <li><strong>White-box</strong> — prizes for the best detectors using white-box or hybrid methods</li>
   <li><strong>Black-box</strong> — prizes for the best detectors using black-box-only methods</li>
 </ul>
-<p><strong>What you can do</strong></p>
-<ul>
-  <li>Query model organisms and a trusted model (Qwen 3.5 9b) hosted on NDIF via NNsight</li>
-  <li>Read and write activations and tokens at any layer or position</li>
-  <li>Access model weights and LoRA adapters on HuggingFace</li>
-  <li>Develop and validate methods against organizer-provided validation datasets or your own</li>
-  <li>Adapt parameters (probe layer, hyperparameters, prompt phrasing) per organism, as long as choices are motivated by architectural constraints, method reasoning, or validation performance</li>
-</ul>
-<p><strong>What you cannot do</strong></p>
-<ul>
-  <li>Access model organism design documents, training data, or held-out test datasets</li>
-  <li>Generate or select prompts/parameters based on organism-specific behavioral analysis or weight/adapter inspection</li>
-  <li>Submit fundamentally different detection logic for different organisms (per-organism parameter tweaks must be documented and justified in your report)</li>
-  <li>Make external API calls at inference time — all inference must go through the NDIF API</li>
-  <li>Interact with fine-tuned versions of hosted organisms at inference time</li>
-</ul>
+<p><em>Official competition rules to be announced prior to competition.</em></p>
+
 <p><strong>Submission</strong></p>
 <p>
-Submit a single Jupyter notebook containing one detector per model organism, with a report section explaining your lie detector method and any per-organism parameter choices, by committing to the competition GitHub. Organizers will then run it in a controlled NDIF environment against held-out test data. There will be no public leaderboard during the competition.
+Submit a single Jupyter notebook containing one detector per model organism, with a report section explaining your lie detector method and any per-organism parameter choices. Organizers will then run it in a controlled NDIF environment against held-out test data. Evaluation results may be posted in a leaderboard visible to the public or other contestants.
 </p>
-<p><strong>Enforcement</strong></p>
-<p>
-After the competition, the judging panel reviews each submission for detection logic that exploits model organism-specific insights in ways that wouldn't generalize. Violations result in disqualification.
-</p>
-<ul>
-  <li><em>Allowed:</em> Designing interrogation prompts motivated by the general hypothesis that self-questioning surfaces inconsistencies, then selecting the best-performing prompt per organism via validation.</li>
-  <li><em>Forbidden:</em> Inspecting an organism's behavior or adapters, discovering it lies in English but answers honestly in Spanish, and designing a Spanish follow-up based on that finding.</li>
-</ul>
-
-<h2 id="scoring">Scoring</h2>
-<p>
-Each submission is scored by <strong>average AUROC across all held-out test datasets</strong>. AUROC is threshold-free and robust to small class-imbalance differences across datasets. Raw per-scenario AUROCs with confidence intervals and full rank vectors are reported alongside the headline score.
-</p>
-<p>
-In addition to the automatic AUROC ranking, a judging panel handles rule enforcement and awards special-category prizes for <strong>Scientific Novelty</strong> (innovative and creative methods) and <strong>Scalability</strong> (low inference compute, fewer privileged affordances).
-</p>
+<p><em>Official submission details and template notebook to be announced prior to competition start.</em></p>
 
 <h2 id="prizes">Prizes</h2>
 <p>
-Total prize pool of <strong>$50,000</strong>. Prizes are split evenly across team members and can stack — qualifying for one prize does not disqualify you from others.
+Total prize pool of <strong>$50,000</strong>. Prizes are split evenly across team members and can stack — qualifying for one prize does not disqualify you from others. Prizes will be announced prior to competition start and will include both awards for highest-ranking methods and hand-selected judge awards.
 </p>
-
-<div class="prize-group">
-  <p class="prize-group-title">Highest ranking — Overall &nbsp;·&nbsp; $10,000</p>
-  <p class="prize-note">Metric: average AUROC across held-out test datasets &nbsp;·&nbsp; Minimum: outperform all 4 baseline methods</p>
-  <ul>
-    <li><span class="prize-amount">#1 — $10,000</span></li>
-  </ul>
-</div>
-
-<div class="prize-group">
-  <p class="prize-group-title">Highest ranking — White-box &nbsp;·&nbsp; $10,000</p>
-  <p class="prize-note">Metric: average AUROC across held-out test datasets &nbsp;·&nbsp; Minimum: outperform all 4 baseline methods</p>
-  <ul>
-    <li><span class="prize-amount">#1 — $5,000</span></li>
-    <li><span class="prize-amount">#2 — $3,000</span></li>
-    <li><span class="prize-amount">#3 — $2,000</span></li>
-  </ul>
-</div>
-
-<div class="prize-group">
-  <p class="prize-group-title">Highest ranking — Black-box &nbsp;·&nbsp; $10,000</p>
-  <p class="prize-note">Metric: average AUROC across held-out test datasets &nbsp;·&nbsp; Minimum: outperform all 4 baseline methods</p>
-  <ul>
-    <li><span class="prize-amount">#1 — $5,000</span></li>
-    <li><span class="prize-amount">#2 — $3,000</span></li>
-    <li><span class="prize-amount">#3 — $2,000</span></li>
-  </ul>
-</div>
-
-<div class="prize-group">
-  <p class="prize-group-title">Judge's awards &nbsp;·&nbsp; $5,000 each</p>
-  <p class="prize-note">Awarded by a panel of organizers and advisors</p>
-  <ul>
-    <li>Scientific Novelty prize</li>
-    <li>Scalability prize</li>
-  </ul>
-</div>
 
 <h2 id="organizers">Organizers</h2>
 
@@ -550,16 +508,19 @@ Total prize pool of <strong>$50,000</strong>. Prizes are split evenly across tea
 This competition is not directed at minors. Participants must be <strong>18 years of age or older</strong> to apply, compete, or receive prizes.
 </p>
 <p>
-US government-restricted and sanctioned parties are ineligible to participate. All potential winners must complete <a href="https://compliance.northeastern.edu/restricted-party-screening/" target="_blank" rel="noopener">Northeastern's Restricted Party Screening</a> before prizes are announced or awarded.
+US government-restricted/sanctioned parties are ineligible to participate. Prizes cannot be awarded to government-restricted/sanctioned parties. All potential winners must go through <a href="https://compliance.northeastern.edu/restricted-party-screening/" target="_blank" rel="noopener">Northeastern's Restricted Party Screening</a>.
 </p>
 <p>
-Government employees and officials must obtain a release and/or affirmative permission from their employer before any prize can be awarded, per government gift and ethics restrictions. Potential winners in this category will be connected with <a href="mailto:compliance@northeastern.edu">compliance@northeastern.edu</a> to discuss this prior to prize announcement.
+Government employees and officials must obtain a release and/or affirmative permission from their employer before any prize can be awarded, per government gift and ethics restrictions. Potential winners in this category will be connected with <a href="mailto:compliance@northeastern.edu">compliance@northeastern.edu</a> to discuss prior to prize announcement.
 </p>
 <p>
-Prize eligibility is determined at the individual level. If a team includes members who are ineligible to receive prizes, eligible members may still receive their proportional share, subject to organizer discretion and compliance review.
+Each individual may only be part of one team.
 </p>
 <p>
-All submissions, code, and associated materials will be made publicly available under an <strong>Apache 2.0</strong> open-source license following the competition. By submitting, participants grant the organizers a perpetual, royalty-free license to publish and reproduce their submissions as part of the competition report and public repository. Participants retain authorship credit for their work.
+Prize eligibility is determined at the individual level. If a team includes members who are ineligible to receive prizes (e.g., government employees pending release), eligible members may still receive their proportional share, subject to organizer discretion and compliance review.
+</p>
+<p>
+By making a submission, you agree that all submissions, code, and associated materials will be made publicly available under an open-source license (<strong>MIT license</strong>) during and following the competition. By submitting, participants grant the organizers a perpetual, royalty-free license to publish and reproduce their submissions as part of the competition report and public repository. Participants retain authorship credit for their work.
 </p>
 
 <h2 id="contact">Contact</h2>
@@ -567,6 +528,7 @@ All submissions, code, and associated materials will be made publicly available 
 Questions? Reach us on the competition Discord or at <a href="mailto:competition@cadenzalabs.org">competition@cadenzalabs.org</a>. Rule clarifications and deadline updates are posted to the Discord announcements channel and this website.
 </p>
 <p>
+  <a class="btn" href="https://discord.gg/4NX3sUC4ge" target="_blank" rel="noopener">Join Discord</a>
   <a class="btn btn-outline" href="mailto:competition@cadenzalabs.org">Email Us</a>
 </p>
 
