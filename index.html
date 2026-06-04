@@ -4,6 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Aletheia's Quest</title>
+<link rel="icon" type="image/png" href="Aletheia%27s%20Quest%20Logo%20-%20transparent.png">
+<meta name="description" content="An AI lie detection competition. Build detectors for LLMs induced to lie — white-box and black-box tracks, $50,000 prize pool, Summer 2026.">
+<meta property="og:title" content="Aletheia's Quest — An AI Lie Detection Challenge">
+<meta property="og:description" content="Build lie detectors for language models. White-box and black-box tracks, $50,000 prize pool. Summer 2026 on NDIF via NNsight.">
+<meta property="og:image" content="https://aletheias-quest.github.io/Aletheia%27s%20Quest%20Logo%20-%20transparent.png">
+<meta property="og:url" content="https://aletheias-quest.github.io">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Aletheia's Quest — An AI Lie Detection Challenge">
+<meta name="twitter:description" content="Build lie detectors for language models. White-box and black-box tracks, $50,000 prize pool. Summer 2026 on NDIF via NNsight.">
+<meta name="twitter:image" content="https://aletheias-quest.github.io/Aletheia%27s%20Quest%20Logo%20-%20transparent.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
@@ -337,6 +348,7 @@
 
 <header id="top">
   <div class="meander"></div>
+  <img src="Aletheia%27s%20Quest%20Logo%20-%20transparent.png" alt="Aletheia's Quest" style="height:90px; width:auto; margin-bottom:0.5rem; display:block; margin-left:auto; margin-right:auto;">
   <h1 class="title">ALETHEIA'S QUEST</h1>
   <p class="subtitle">An AI Lie Detection Challenge</p>
   <p class="subtitle">Summer 2026</p>
@@ -418,7 +430,23 @@ Develop a lie detector and compete to score statements made by different model o
   <li><strong>White-box</strong> — prizes for the best detectors using white-box or hybrid methods</li>
   <li><strong>Black-box</strong> — prizes for the best detectors using black-box-only methods</li>
 </ul>
-<p><em>Official competition rules to be announced prior to competition.</em></p>
+<h3>What you can do</h3>
+<ul>
+  <li>Query model organisms and a trusted model (<strong>Qwen 3.5 9b</strong>) hosted on NDIF via NNsight</li>
+  <li>Read and write activations and tokens at any layer or position</li>
+  <li>Access model weights and LoRA adapters on HuggingFace</li>
+  <li>Develop and validate methods against organizer-provided validation datasets or your own</li>
+  <li>Adapt parameters (probe layer, hyperparameters, prompt phrasing) per organism, as long as choices are motivated by architectural constraints, method reasoning, or validation performance</li>
+</ul>
+<h3>What you cannot do</h3>
+<ul>
+  <li>Attempt to exfiltrate held-out test data; e.g., no internet connections or other techniques for revealing the held-out tests are allowed</li>
+  <li>Attempt to access model-organism design documents, training data, or held-out test datasets — a fair contest requires that the red-team secrets remain secret for all contestants</li>
+  <li>Generate or select prompts/parameters based on organism-specific behavioral analysis or weight/adapter inspection</li>
+  <li>Submit fundamentally different detection logic for different organisms (per-organism parameter tweaks must be documented and justified in your report)</li>
+  <li>Make external API calls at inference time: all inference must go through the NDIF API</li>
+  <li>Create your own fine-tuned variant of a hosted model-organism (e.g., by training an additional LoRA adapter on it) and query that variant — at inference time, all calls must run against the model-organisms exactly as hosted on NDIF</li>
+</ul>
 
 <p><strong>Submission</strong></p>
 <p>
