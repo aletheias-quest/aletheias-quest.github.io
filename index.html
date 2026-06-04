@@ -430,29 +430,12 @@ Develop a lie detector and compete to score statements made by different model o
   <li><strong>White-box</strong> — prizes for the best detectors using white-box or hybrid methods</li>
   <li><strong>Black-box</strong> — prizes for the best detectors using black-box-only methods</li>
 </ul>
-<h3>What you can do</h3>
-<ul>
-  <li>Query model organisms and a trusted model (<strong>Qwen 3.5 9b</strong>) hosted on <a href="https://ndif.us/" target="_blank" rel="noopener">NDIF</a> via <a href="https://nnsight.net/" target="_blank" rel="noopener">NNsight</a></li>
-  <li>Read and write activations and tokens at any layer or position</li>
-  <li>Access model weights and LoRA adapters on HuggingFace</li>
-  <li>Develop and validate methods against organizer-provided validation datasets or your own</li>
-  <li>Adapt parameters (probe layer, hyperparameters, prompt phrasing) per organism, as long as choices are motivated by architectural constraints, method reasoning, or validation performance</li>
-</ul>
-<h3>What you cannot do</h3>
-<ul>
-  <li>Attempt to exfiltrate held-out test data; e.g., no internet connections or other techniques for revealing the held-out tests are allowed</li>
-  <li>Attempt to access model-organism design documents, training data, or held-out test datasets — a fair contest requires that the red-team secrets remain secret for all contestants</li>
-  <li>Generate or select prompts/parameters based on organism-specific behavioral analysis or weight/adapter inspection</li>
-  <li>Submit fundamentally different detection logic for different organisms (per-organism parameter tweaks must be documented and justified in your report)</li>
-  <li>Make external API calls at inference time: all inference must go through the NDIF API</li>
-  <li>Create your own fine-tuned variant of a hosted model-organism (e.g., by training an additional LoRA adapter on it) and query that variant — at inference time, all calls must run against the model-organisms exactly as hosted on NDIF</li>
-</ul>
+<p><em>Official rules to be announced prior to competition start.</em></p>
 
 <p><strong>Submission</strong></p>
 <p>
 Submit a single Jupyter notebook formatted according to our competition template (to be released) containing one detector per model organism, with a report section explaining your lie detector method and any per-organism parameter choices. Organizers will then run it in a controlled NDIF environment against held-out test data. Evaluation results may be posted in a leaderboard visible to the public or other contestants.
 </p>
-<p><em>Official submission details and template notebook to be announced prior to competition start.</em></p>
 
 <h2 id="prizes">Prizes</h2>
 <p>
