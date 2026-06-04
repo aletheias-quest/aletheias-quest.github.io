@@ -196,6 +196,73 @@
     letter-spacing: 0.05em;
   }
   html { scroll-behavior: smooth; scroll-padding-top: 48px; }
+
+  .nav-hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.65rem 1rem;
+    margin-left: auto;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-end;
+  }
+  .nav-hamburger span {
+    display: block;
+    height: 1.5px;
+    background: var(--muted);
+    transition: background 0.15s, width 0.15s;
+  }
+  .nav-hamburger span:nth-child(1) { width: 22px; }
+  .nav-hamburger span:nth-child(2) { width: 16px; }
+  .nav-hamburger span:nth-child(3) { width: 22px; }
+  .nav-hamburger:hover span,
+  nav.open .nav-hamburger span { background: var(--gold-bright); }
+  .nav-hamburger:hover span:nth-child(2),
+  nav.open .nav-hamburger span:nth-child(2) { width: 22px; }
+
+  @media (max-width: 600px) {
+    h1.title {
+      font-size: clamp(1.6rem, 6.5vw, 3.6rem);
+      letter-spacing: 0.05em;
+    }
+    .subtitle {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+    }
+    .wrap { padding: 2.5rem 1.2rem 4rem; }
+    .prologue { font-size: 1rem; }
+    body { font-size: 17px; }
+    header img { height: 70px !important; }
+    table { font-size: 0.88rem; }
+    td, th { padding: 0.45rem 0.5rem; }
+
+    .nav-hamburger { display: flex; }
+
+    nav ul {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      padding: 0.25rem 0 0.5rem;
+      border-top: 1px solid rgba(201,168,90,0.18);
+    }
+    nav.open ul { display: flex; }
+    nav ul li { width: 100%; }
+    nav a {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      padding: 0.75rem 1.5rem;
+      border-bottom: 1px solid rgba(201,168,90,0.07);
+    }
+    nav ul li:last-child a { border-bottom: none; }
+
+    nav > ul {
+      flex-wrap: wrap;
+      width: 100%;
+      min-width: unset;
+    }
+  }
   .logos-band {
     position: relative;
     left: 50%;
@@ -332,7 +399,10 @@
 </style>
 </head>
 <body>
-<nav>
+<nav id="main-nav">
+  <button class="nav-hamburger" id="nav-toggle" aria-label="Open navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
   <ul>
     <li><a href="#top">Overview</a></li>
     <li><a href="#timeline">Timeline</a></li>
@@ -544,5 +614,20 @@ Questions? Reach us on the competition Discord or at <a href="mailto:competition
 </p>
 
 </div>
+<script>
+  const nav = document.getElementById('main-nav');
+  const toggle = document.getElementById('nav-toggle');
+  toggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+  // Close menu when a link is tapped
+  nav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', false);
+    });
+  });
+</script>
 </body>
 </html>
