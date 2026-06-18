@@ -475,7 +475,9 @@ See Section 3 in <a href="https://arxiv.org/abs/2511.16035" target="_blank" rel=
     <tr><td>June 4</td><td>Applications open (rolling admissions)</td></tr>
     <tr><td>June 21</td><td>Applications close</td></tr>
     <tr><td>June 29</td><td>Competition begins</td></tr>
-    <tr><td>July 26</td><td>Submission deadline</td></tr>
+    <tr><td>July 26</td><td>Main competition submission deadline</td></tr>
+    <tr><td>July 27</td><td>Bonus week begins (surprise task)</td></tr>
+    <tr><td>July 31</td><td>Bonus submission deadline (surprise task)</td></tr>
     <tr><td>August 25</td><td>Invite-only awards event in Boston</td></tr>
   </tbody>
 </table>
@@ -490,26 +492,114 @@ Organizers will rate lie detection team applications by their team and technical
 </p>
 
 <h2 id="rules">Rules</h2>
+
+<h3>Goal</h3>
 <p>
-Develop a lie detector and compete to score statements made by different model organisms in held-out test datasets. A statement counts as a lie if the model outputs something it believes to be false; each sample is labeled either <em>lie</em> or <em>honest</em>. Detectors are ranked by their <strong>average AUROC across all held-out test datasets</strong>, so your detector should generalize across both lying scenarios and model organisms.
+Develop a lie detection method and implement it for each AI in the competition's lineup. Samples are labeled <em>lie</em> or <em>honest</em>; detectors output a real-valued lie score. Teams are ranked by balanced accuracy, calculated on each dataset and then averaged across all test datasets. (Note: Computing balanced accuracy requires teams choosing a threshold when developing their method.)
 </p>
+
+<h3>What you can do</h3>
+<ul>
+  <li>Query model organisms and a trusted model (likely Qwen 3.5 9b) hosted on NDIF via nnsight.</li>
+  <li>Read and write activations and tokens at any layer or position.</li>
+  <li>Access model weights and LoRA adapters on HuggingFace.</li>
+  <li>Develop and validate methods against organizer-provided validation datasets or your own.</li>
+  <li>Adapt detector parameters (probe layer, hyperparameters, prompt phrasing) per organism, as long as choices are motivated by architectural constraints, method reasoning, or validation performance.</li>
+</ul>
+
+<h3>What you cannot do</h3>
+<ul>
+  <li>Attempt to exfiltrate held-out test data (e.g., no internet connections or other techniques for revealing the held-out tests are allowed).</li>
+  <li>Attempt to access model-organism design documents, training data, or held-out test datasets.</li>
+  <li>Generate or select prompts/parameters based on organism-specific behavioral analysis or weight/adapter inspection.</li>
+  <li>Submit fundamentally different detection logic for different organisms (per-organism parameter tweaks must be documented and justified in your report).</li>
+  <li>Make external API calls at inference time: all inference must go through the NDIF API.</li>
+  <li>Create your own fine-tuned variant of a hosted model-organism and query that variant. At inference time, all calls must run against the model-organisms exactly as hosted on NDIF.</li>
+</ul>
+<p><em>Amendments to Rules and Technical Specifications: The Organizers reserve the right to modify, update, or change these Official Rules at any time. Any changes will be communicated promptly via the official competition Discord. Continued participation following any such modification constitutes acceptance of the revised rules.</em></p>
+
+<h3>Competition Phases</h3>
+<p>
+The competition runs in two phases. In the <strong>Main Phase</strong> (June 29 – July 26), all the model organisms are live on NDIF alongside the trusted model, and teams receive a labeled development dataset they may use without restriction, including for training detector components. Leaderboard submissions are scored on organizer-held validation datasets for the validation organisms; the underlying distributions are not disclosed. The leaderboard displays each team's overall average balanced accuracy and AUROC alongside per-organism metrics. The Main Phase competition scores will depend on remaining held-out datasets not used for validation scoring.
+</p>
+<p>
+We will also have a <strong>Bonus Phase</strong> running from July 27 – July 31, with a surprise task to be announced closer to the date. Additional prizes will be awarded for the Bonus Phase.
+</p>
+
+<h3>Submitting</h3>
+<p>Submissions must include the following:</p>
+<ul>
+  <li>A single Jupyter notebook (based on a provided template) containing one detector per model organism.</li>
+  <li>Any trained parameters or other supplemental data needed by your code, included directly in the submission folder.</li>
+  <li>A report section explaining your lie detector method and any per-organism parameter choices.</li>
+  <li>Code for reproducing the training of any parameters used by your main method.</li>
+  <li>A form declaring the category of your submission (e.g., white box or black box), attesting that you agree to abide by the rules and identifying your registered team number.</li>
+</ul>
+<p><em>Note: there is an upper limit on submission size (currently 200 MB), and the number of allowed daily submissions may be rate limited. Submission size and rate limits are subject to change.</em></p>
+<p>
+Organizers will run your notebook in a controlled NDIF environment against held-out test data. Your submission may be disqualified if it is misconfigured, cannot complete within the time or resource budget allotted, does not include a report accurately describing your approach, does not include reproducible training code, or if you have not obtained a team number or agreed to the rules.
+</p>
+<p>
+All detector training must be contained in the submission and fully reproducible when organizers re-run it. After the contest, organizers will retrain components from scratch by re-running your notebook to confirm no rules were broken. Evaluation results may be posted in a leaderboard visible to the public or other contestants.
+</p>
+
+<h3>Enforcement</h3>
+<p>
+After the competition, the judging panel reviews each submission for detection logic that exploits model organism-specific insights in ways that wouldn't generalize. Violations result in disqualification.
+</p>
+<ul>
+  <li><strong>Allowed:</strong> Designing interrogation prompts motivated by the general hypothesis that self-questioning surfaces inconsistencies, then selecting the best-performing prompt per organism via validation.</li>
+  <li><strong>Forbidden:</strong> Inspecting an organism's behavior or adapters, discovering it lies in English but answers honestly in Spanish, and designing a Spanish follow-up based on that finding.</li>
+</ul>
+
+<h3>Scoring</h3>
+<p>
+Each submission is scored per (model organism, dataset) unit using balanced accuracy, averaged across all datasets. As a tie-breaker, we additionally rank by average AUROC, calculated on each dataset and then averaged across all test datasets.
+</p>
+<p>
+In addition to automatic scoring, a judging panel handles rule enforcement and awards special-category prizes: <strong>Scientific Novelty</strong> (innovative and creative methods) and <strong>Scalability</strong> (low inference compute, fewer privileged affordances).
+</p>
+
 <p><strong>Competition tracks</strong></p>
 <ul>
   <li><strong>White-box</strong> — prizes for the best detectors using white-box or hybrid methods</li>
   <li><strong>Black-box</strong> — prizes for the best detectors using black-box-only methods</li>
 </ul>
-<p><em>Official rules to be announced prior to competition start.</em></p>
-
-<p><strong>Submission</strong></p>
-<p>
-Submit a single Jupyter notebook formatted according to our competition template (to be released), with your lie detector code and a report section explaining your method. Organizers will then run it in a controlled NDIF environment against held-out test data. Evaluation results may be posted in a leaderboard visible to the public or other contestants.
-</p>
-<p><em>Official submission details and template notebook to be announced prior to competition start.</em></p>
 
 <h2 id="prizes">Prizes</h2>
 <p>
-Total prize pool of <strong>$50,000</strong>. Prizes are split evenly across team members and can stack — qualifying for one prize does not disqualify you from others. Prizes will be announced prior to competition start and will include both awards for highest-ranking methods and hand-selected judge awards.
+Total prize pool of <strong>$50,000</strong>. Prizes are split evenly across team members and can stack — qualifying for one prize does not disqualify you from others.
 </p>
+
+<div class="prize-group">
+  <p class="prize-group-title">Highest Ranking White-Box Methods</p>
+  <p class="prize-note">First, second, and third place awards</p>
+  <p>Metric: Average balanced accuracy across held-out test datasets (average AUROC as tie-breaker)</p>
+  <p>Minimum requirement: Higher ranking than each of 4 baseline methods</p>
+</div>
+
+<div class="prize-group">
+  <p class="prize-group-title">Highest Ranking Black-Box Methods</p>
+  <p class="prize-note">First, second, and third place awards</p>
+  <p>Metric: Average balanced accuracy across held-out test datasets (average AUROC as tie-breaker)</p>
+  <p>Minimum requirement: Higher ranking than each of 4 baseline methods</p>
+</div>
+
+<div class="prize-group">
+  <p class="prize-group-title">Weekly Leaderboard Prizes</p>
+  <p class="prize-note">First, second, and third place awards</p>
+  <p>Metric: Average balanced accuracy across held-out validation datasets (average AUROC as tie-breaker)</p>
+  <p>Minimum requirement: Higher ranking than each of 4 baseline methods</p>
+</div>
+
+<div class="prize-group">
+  <p class="prize-group-title">Judge's Awards</p>
+  <p class="prize-note">Judges include advisors and organizers</p>
+  <ul>
+    <li><strong>Novelty</strong> — innovative and creative methods</li>
+    <li><strong>Scalability</strong> — low inference compute, fewer privileged affordances</li>
+  </ul>
+</div>
 
 <h2 id="organizers">Organizers</h2>
 
@@ -591,6 +681,9 @@ US government-restricted/sanctioned parties are ineligible to participate. Prize
 </p>
 <p>
 Government employees and officials must obtain a release and/or affirmative permission from their employer before any prize can be awarded, per government gift and ethics restrictions. Potential winners in this category will be connected with <a href="mailto:compliance@northeastern.edu">compliance@northeastern.edu</a> to discuss prior to prize announcement.
+</p>
+<p>
+Contest organizers, dataset builders, and any other individuals with knowledge about the dataset design may not participate.
 </p>
 <p>
 Each individual may only be part of one team.
