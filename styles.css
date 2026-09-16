@@ -394,7 +394,83 @@ figcaption {
   font-style: italic;
   line-height: 1.55;
   margin-top: 0.7rem;
+  text-align: center;
 }
+
+/* ---- Photo gallery: 6-column grid on desktop, 2 columns on phones ---- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.6rem;
+  margin: 1.6rem 0 2.2rem;
+}
+.gallery figure { margin: 0; grid-column: span 2; }
+.gallery .g-half { grid-column: span 3; }
+.gallery .g-wide { grid-column: 1 / -1; }
+.gallery figcaption { margin-top: 0.35rem; font-size: 0.82rem; }
+.gallery img { aspect-ratio: 3 / 2; object-fit: cover; }
+a.zoom { display: block; cursor: zoom-in; }
+a.zoom img { transition: opacity 0.2s; }
+a.zoom:hover img { opacity: 0.85; }
+a.zoom:focus-visible { outline: 1px solid var(--gold); outline-offset: 3px; }
+
+@media (max-width: 600px) {
+  .gallery { grid-template-columns: repeat(2, 1fr); gap: 0.45rem; }
+  .gallery figure, .gallery .g-half { grid-column: span 1; }
+  .gallery .g-wide { grid-column: 1 / -1; }
+}
+
+/* Full-size photo viewer opened from a.zoom links */
+.lightbox {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 2.8rem 1rem 1rem;
+  border: 0;
+  background: rgba(16,12,9,0.95);
+  color: var(--ink);
+  cursor: zoom-out;
+}
+.lightbox[open] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
+.lightbox::backdrop { background: transparent; }
+.lightbox img {
+  display: block;
+  max-width: 100%;
+  max-height: calc(100vh - 6rem);
+  width: auto;
+  height: auto;
+  border-radius: 3px;
+}
+.lightbox-cap {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-style: italic;
+  text-align: center;
+}
+.lightbox-close {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.7rem;
+  padding: 0.2rem 0.6rem;
+  border: 0;
+  background: none;
+  color: var(--parchment);
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.lightbox-close:hover { color: var(--gold-bright); }
+body:has(.lightbox[open]) { overflow: hidden; }
+
 .table-scroll { overflow-x: auto; margin: 1rem 0 1.5rem; }
 .table-scroll table { margin: 0; }
 table.scenarios { min-width: 560px; font-size: 0.9rem; }
