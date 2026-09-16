@@ -3693,6 +3693,11 @@ Following the operational definition used in <a href="https://arxiv.org/abs/2511
 <p>
 Dataset creators needed to provide evidence for that belief, such as the model consistently answering correctly when the pressure to lie was removed. This requirement made dataset construction a research problem in its own right, since a false statement alone could simply reflect a training error or model uncertainty. Red teams hence had to establish both what the model said and why the label was justified.
 </p>
+
+<figure>
+  <a class="zoom" href="images/workshop/ndif-hackathon-20-1600.webp"><img src="images/workshop/ndif-hackathon-20-800.webp" srcset="images/workshop/ndif-hackathon-20-800.webp 800w, images/workshop/ndif-hackathon-20-1600.webp 1600w" sizes="(max-width: 760px) 100vw, 696px" width="1600" height="1068" loading="lazy" decoding="async" alt="Six red-team members standing in a row at the Boston showcase"></a>
+  <figcaption>Red team members at the competition showcase in Boston.</figcaption>
+</figure>
 <p>
 Blue teams were tasked with developing methods that, given a conversation concluded by a message from the suspect model, returned a “dishonesty score” for the final response. They worked with a diverse set of model organisms based on <a href="https://huggingface.co/Qwen/Qwen3.5-27B" target="_blank" rel="noopener">Qwen3.5-27B</a>, <a href="https://huggingface.co/google/gemma-3-27b-it" target="_blank" rel="noopener">Gemma-3-27B</a>, and <a href="https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16" target="_blank" rel="noopener">Nemotron-3-Super-120B</a>, and could use <a href="https://huggingface.co/Qwen/Qwen3.5-9B" target="_blank" rel="noopener">Qwen3.5-9B</a> as a judge model. Some models were brought into situations where they started lying naturally; others had behaviors built into them through fine-tuning or prompting.
 </p>
