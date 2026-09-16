@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aletheia's Quest</title>
+<link rel="icon" type="image/png" href="Aletheia%27s%20Quest%20Logo%20-%20transparent.png">
+<meta name="description" content="An AI lie detection competition. Build detectors for LLMs induced to lie — white-box and black-box tracks, $50,000 prize pool, Summer 2026.">
+<meta property="og:title" content="Aletheia's Quest — An AI Lie Detection Challenge">
+<meta property="og:description" content="Build lie detectors for language models. A competition by Cadenza Labs and NDIF — white-box and black-box tracks, $50,000 prize pool. Summer 2026 via NNsight.">
+<meta property="og:image" content="https://aletheias-quest.github.io/social-preview.jpg">
+<meta property="og:url" content="https://aletheias-quest.github.io">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Aletheia's Quest — An AI Lie Detection Challenge">
+<meta name="twitter:description" content="Build lie detectors for language models. A competition by Cadenza Labs and NDIF — white-box and black-box tracks, $50,000 prize pool. Summer 2026 via NNsight.">
+<meta name="twitter:image" content="https://aletheias-quest.github.io/social-preview.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav>
+  <ul>
+    <li><a href="index.html" aria-current="page">Competition</a></li>
+    <li><a href="winners.html">Winners</a></li>
+  </ul>
+</nav>
+<div class="wrap">
+
+<header id="top">
+  <div class="meander"></div>
+  <img src="Aletheia%27s%20Quest%20Logo%20-%20transparent.png" alt="Aletheia's Quest" style="height:90px; width:auto; margin-bottom:0.5rem; display:block; margin-left:auto; margin-right:auto;">
+  <h1 class="title">ALETHEIA'S QUEST</h1>
+  <p class="subtitle">An AI Lie Detection Challenge</p>
+  <p class="subtitle">Summer 2026</p>
+  <div class="meander"></div>
+</header>
+
+<p class="prologue">
+Ἀλήθεια, Aletheia, is the ancient Greek spirit of truth. Her name means <em>un-hiddenness</em>: that which has not been concealed. She stands against Lethe, river of oblivion, and against the lie, the utterance that buries what is known. This competition takes her name, and her question: when a language model speaks, does it reveal, or does it conceal?
+</p>
+
+<p style="text-align:center; margin: 1.5rem 0 2rem;">
+  <a class="btn" href="winners.html">View Winners</a>
+  <a class="btn btn-outline" href="https://discord.gg/4NX3sUC4ge" target="_blank" rel="noopener">Join Discord</a>
+</p>
+
+<div class="logos-meander"></div>
+<div class="logos-band">
+  <div class="logos">
+    <span class="logos-label">Organized by</span>
+    <a href="https://cadenzalabs.org" target="_blank" rel="noopener"><img src="cadenza-logo-ivory.svg" alt="Cadenza Labs" style="height:24px; filter:none;"></a>
+    <a href="https://ndif.us" target="_blank" rel="noopener"><img src="https://ndif.us/images/NDIF_Acr_color.png" alt="NDIF"></a>
+    <a href="https://www.northeastern.edu" target="_blank" rel="noopener"><img src="https://brand.northeastern.edu/wp-content/uploads/2025/01/NU_RGB_Notched-N_wordmark_RB-1-2.svg" alt="Northeastern University"></a>
+  </div>
+  <div class="logos">
+    <span class="logos-label">Supported by</span>
+    <a href="https://www.schmidtsciences.org/" target="_blank" rel="noopener"><img src="https://www.schmidtsciences.org/wp-content/themes/schmidt-sciences/src/images/logo.svg" alt="Schmidt Sciences"></a>
+    <a href="https://aws.amazon.com/" target="_blank" rel="noopener"><img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="Amazon Web Services"></a>
+  </div>
+</div>
+<div class="logos-meander"></div>
+
+<p>
+In this challenge led by <strong><a href="https://cadenzalabs.org/" target="_blank" rel="noopener">Cadenza Labs</a></strong>, <strong><a href="https://ndif.us/" target="_blank" rel="noopener">NDIF</a></strong>, and <strong><a href="https://www.schmidtsciences.org/" target="_blank" rel="noopener">Schmidt Sciences</a></strong>, participating teams built lie detectors with black-box and white-box access to a suite of LLMs induced to lie in different ways. Datasets were produced in advance by nine independent dataset-creation teams. The competition ran on the National Deep Inference Fabric (<a href="https://ndif.us/" target="_blank" rel="noopener">NDIF</a>) via <a href="https://nnsight.net/" target="_blank" rel="noopener">NNsight</a> — no local GPU required.
+</p>
+<p>
+Teams with the best-performing and most innovative methods received monetary awards, recognition in our competition report, and invitations to our in-person convening in <strong>Boston on August 25th, 2026</strong>.
+</p>
+
+<div class="announce">
+  <p class="announce-title">The Final Standings Are Published</p>
+  <p class="announce-winners">White-box winner <strong>Veritaserum</strong> · Black-box winner <strong>FlaiChi</strong></p>
+  <a class="btn" href="winners.html">View the Winners</a>
+</div>
+
+<h3>Definition of Lying</h3>
+<p>
+We adopt an assertion-based definition, as operationalized in <a href="https://arxiv.org/abs/2511.16035" target="_blank" rel="noopener"><em>Liars' Bench</em></a> (Kretschmar et al., 2025): the assistant lies if it states something it believes to be false. Beliefs are measured through consistent demonstrations of knowledge, including in contexts without direct pressure to lie.
+</p>
+<p>
+See Section 3 in <a href="https://arxiv.org/abs/2511.16035" target="_blank" rel="noopener"><em>Liars' Bench</em></a> for more details.
+</p>
+
+<h2 id="timeline">Timeline <span style="font-size:0.6em; font-weight:normal; letter-spacing:0.1em; opacity:0.7">(Summer 2026)</span></h2>
+<table>
+  <thead>
+    <tr><th>Date</th><th>Milestone</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>June 4</td><td>Applications open (rolling admissions)</td></tr>
+    <tr><td>June 21</td><td>Applications close</td></tr>
+    <tr><td>June 29</td><td>Competition begins</td></tr>
+    <tr><td>July 29</td><td>Main competition submission deadline</td></tr>
+    <tr><td>August 25</td><td>Invite-only awards event in Boston</td></tr>
+  </tbody>
+</table>
+
+<h2 id="apply">Apply</h2>
+<p class="status">Applications closed — the competition has concluded</p>
+<p>
+Organizers rated lie detection team applications by their team and technical approach, and provided teams with API access to the NDIF infrastructure on a needs-based basis. Applications closed <strong>June 21st, 2026</strong>.
+</p>
+<p>
+  <a class="btn" href="winners.html">View the Winners</a>
+</p>
+
+<h2 id="rules">Rules</h2>
+
+<h3>Goal</h3>
+<p>
+Develop a lie detection method and implement it for each AI in the competition's lineup. Samples are labeled <em>lie</em> or <em>honest</em>; detectors output a real-valued lie score. Teams are ranked by <strong>mean AUROC</strong>: calculated on each dataset and then averaged across all test datasets. AUROC is threshold-free, so it scores the quality of a method's lie scores without depending on where the method sets its decision boundary.
+</p>
+
+<h3>What you can do</h3>
+<ul>
+  <li>Query model organisms and a trusted model (Qwen 3.5 9b) hosted on NDIF via nnsight.</li>
+  <li>Read and write activations and tokens at any layer or position.</li>
+  <li>Access model weights and LoRA adapters on HuggingFace.</li>
+  <li>Develop and validate methods against organizer-provided validation datasets or your own.</li>
+  <li>Adapt detector parameters (probe layer, hyperparameters, prompt phrasing) per organism, as long as choices are motivated by architectural constraints, method reasoning, or validation performance.</li>
+</ul>
+
+<h3>What you cannot do</h3>
+<ul>
+  <li>Attempt to exfiltrate held-out test data (e.g., no internet connections or other techniques for revealing the held-out tests are allowed).</li>
+  <li>Attempt to access model-organism design documents, training data, or held-out test datasets.</li>
+  <li>Generate or select prompts/parameters based on organism-specific behavioral analysis or weight/adapter inspection.</li>
+  <li>Submit fundamentally different detection logic for different organisms (per-organism parameter tweaks must be documented and justified in your report).</li>
+  <li>Make external API calls at inference time: all inference must go through the NDIF API.</li>
+  <li>Create your own fine-tuned variant of a hosted model-organism and query that variant. At inference time, all calls must run against the model-organisms exactly as hosted on NDIF.</li>
+  <li>A method qualifies for the white-box track (see below) only if white-box access (weights or activations) is a necessary input to the detector's final score — i.e., removing it changes the score beyond noise on the validation set. If the judges assert that this is not the case, the method will be reclassified as black-box before winners are determined. Example: Including a white-box probe or activation read whose output is ignored, overridden, or contributes negligibly to the final lie score, in order to qualify for white-box track prizes.</li>
+
+</ul>
+<p><em>Amendments to Rules and Technical Specifications: The Organizers reserve the right to modify, update, or change these Official Rules at any time. Any changes will be communicated promptly via the official competition Discord. Continued participation following any such modification constitutes acceptance of the revised rules.</em></p>
+
+<h3>Competition Phases</h3>
+<p>
+The competition runs in two phases. In the <strong>Main Phase</strong> (June 29 – July 26), all the model organisms are live on NDIF alongside the trusted model, and teams receive a labeled development dataset they may use without restriction, including for training detector components. Leaderboard submissions are scored on organizer-held validation datasets for the validation organisms; the underlying distributions are not disclosed. The leaderboard displays each team's overall average balanced accuracy and AUROC alongside per-organism metrics. The Main Phase competition scores will depend on remaining held-out datasets not used for validation scoring.
+</p>
+
+<h3>Submitting</h3>
+<p>Submissions must include the following:</p>
+<ul>
+  <li>A single Jupyter notebook (based on a provided template) containing one detector per model organism.</li>
+  <li>Any trained parameters or other supplemental data needed by your code, included directly in the submission folder.</li>
+  <li>A report section explaining your lie detector method and any per-organism parameter choices.</li>
+  <li>Code for reproducing the training of any parameters used by your main method.</li>
+  <li>A form declaring the category of your submission (e.g., white box or black box), attesting that you agree to abide by the rules and identifying your registered team number.</li>
+</ul>
+<p><em>Note: there is an upper limit on submission size (currently 200 MB), and the number of allowed daily submissions may be rate limited. Submission size and rate limits are subject to change.</em></p>
+<p>
+Organizers will run your notebook in a controlled NDIF environment against held-out test data. Your submission may be disqualified if it is misconfigured, cannot complete within the time or resource budget allotted, does not include a report accurately describing your approach, does not include reproducible training code, or if you have not obtained a team number or agreed to the rules.
+</p>
+<p>
+All detector training must be contained in the submission and fully reproducible when organizers re-run it. After the contest, organizers will retrain components from scratch by re-running your notebook to confirm no rules were broken. Evaluation results may be posted in a leaderboard visible to the public or other contestants.
+</p>
+
+<h3>Enforcement</h3>
+<p>
+After the competition, the judging panel reviews each submission for detection logic that exploits model organism-specific insights in ways that wouldn't generalize. Violations result in disqualification.
+</p>
+<ul>
+  <li><strong>Allowed:</strong> Designing interrogation prompts motivated by the general hypothesis that self-questioning surfaces inconsistencies, then selecting the best-performing prompt per organism via validation.</li>
+  <li><strong>Forbidden:</strong> Inspecting an organism's behavior or adapters, discovering it lies in English but answers honestly in Spanish, and designing a Spanish follow-up based on that finding.</li>
+</ul>
+
+<h3>Scoring</h3>
+<p>
+Each submission is scored per (model organism, dataset) unit using <strong>AUROC</strong>, averaged across all datasets. To win a placed prize, a method must also beat the strongest organizer baseline in its own track.
+</p>
+<p>
+<em>Change from the original rules:</em> this competition was first announced as ranking on balanced accuracy, with AUROC as a tie-breaker. During the development phase we found that many methods were setting their decision thresholds from statistics of the batch or dataset being classified — which lets a method exploit structure in the test set, such as its class balance, that would not be available when judging each sample on its own. Our rules had not explicitly forbidden it. Rather than disqualify many solutions or force teams to rework their thresholds just before the deadline, we moved the main prize pool to AUROC, which is threshold-free. The change took effect for the final held-out datasets and for leaderboard ordering from that Monday onward; that week's leaderboard prizes were still settled on balanced accuracy. The development phase was extended to <strong>July 29th, AOE</strong> to give teams time to adjust.
+</p>
+<p>
+In addition to automatic scoring, a judging panel handles rule enforcement and awards special-category prizes: <strong>Scientific Novelty</strong> (innovative and creative methods) and <strong>Scalability</strong> (low inference compute, fewer privileged affordances).
+</p>
+
+<p><strong>Competition tracks</strong></p>
+<ul>
+  <li><strong>White-box</strong> — prizes for the best detectors using white-box or hybrid methods</li>
+  <li><strong>Black-box</strong> — prizes for the best detectors using black-box-only methods</li>
+</ul>
+
+<h2 id="prizes">Prizes</h2>
+<p>
+Total prize pool of <strong>$50,000</strong>. Prizes are split evenly across team members and can stack — qualifying for one prize does not disqualify you from others.
+</p>
+
+<div class="prize-group">
+  <p class="prize-group-title">Highest Ranking White-Box Methods</p>
+  <p class="prize-note">First, second, and third place awards</p>
+  <p>Metric: Average AUROC across held-out test datasets</p>
+  <p>Minimum requirement: Higher AUROC than the best white-box baseline (Did You Lie probe, 0.6611)</p>
+</div>
+
+<div class="prize-group">
+  <p class="prize-group-title">Highest Ranking Black-Box Methods</p>
+  <p class="prize-note">First, second, and third place awards</p>
+  <p>Metric: Average AUROC across held-out test datasets</p>
+  <p>Minimum requirement: Higher AUROC than the best black-box baseline (LLM self eval, 0.5090)</p>
+</div>
+
+<div class="prize-group">
+  <p class="prize-group-title">Weekly Leaderboard Prizes</p>
+  <p class="prize-note">First, second, and third place awards</p>
+  <p>Metric: Average AUROC across held-out validation datasets. Weeks before the metric change were settled on average balanced accuracy.</p>
+  <p>Minimum requirement: Higher score than the best baseline in the same track</p>
+</div>
+
+<div class="prize-group">
+  <p class="prize-group-title">Judge's Awards</p>
+  <p class="prize-note">Judges include advisors and organizers</p>
+  <ul>
+    <li><strong>Novelty</strong> — innovative and creative methods</li>
+    <li><strong>Scalability</strong> — low inference compute, fewer privileged affordances</li>
+  </ul>
+</div>
+
+<h2 id="organizers">Organizers</h2>
+
+<p class="team-label">Cadenza Labs — Scientific Leads</p>
+
+<div class="bio">
+  <span class="bio-name">Walter Laurito</span><span class="bio-role"> · Co-Scientific Lead</span>
+  <p>Leads and conducts research at Cadenza Labs. He co-authored <a href="https://arxiv.org/abs/2511.16035" target="_blank" rel="noopener"><em>Liars' Bench</em></a> and previously contributed to the <code>inspect_ai</code> evaluation library at the UK AI Security Institute. PhD student at KIT / FZI</p>
+</div>
+
+<div class="bio">
+  <span class="bio-name">Kieron Kretschmar</span><span class="bio-role"> · Co-Scientific Lead</span>
+  <p>Researcher at Cadenza Labs and doctoral researcher at the University of Stuttgart studying evaluation awareness. Co-authored <a href="https://arxiv.org/abs/2511.16035" target="_blank" rel="noopener"><em>Liars' Bench</em></a>; M.Sc. cum laude from the University of Amsterdam.</p>
+</div>
+
+<div class="bio">
+  <span class="bio-name">Sharan Maiya</span><span class="bio-role"> · Researcher</span>
+  <p>Researcher at Cadenza Labs working on AI lie detection; PhD student at the University of Cambridge Language Technology Lab, on leave as a student researcher at Google DeepMind on model identity and character.</p>
+</div>
+
+<div class="bio">
+  <span class="bio-name">Jord Nguyen</span><span class="bio-role"> · Researcher</span>
+  <p>Researcher at Cadenza Labs; previously a research fellow at Pivotal Research and Apart Research.</p>
+</div>
+
+<p class="team-label">NDIF — Northeastern University</p>
+
+<div class="bio">
+  <span class="bio-name">Jaden Fiotto-Kaufman</span><span class="bio-role"> · Team Lead</span>
+  <p>Principal Engineer leading NNsight and NDIF infrastructure development at Northeastern University; previously Senior Scientist at Raytheon BBN Technologies.</p>
+</div>
+
+<div class="bio">
+  <span class="bio-name">Emma Bortz</span><span class="bio-role"> · Administrative Lead</span>
+  <p>Technical Outreach Manager at NDIF, leading marketing, partnerships, and user adoption; PhD from Boston University.</p>
+</div>
+
+<div class="bio">
+  <span class="bio-name">Gabriele Sarti</span><span class="bio-role"> · Postdoctoral Researcher</span>
+  <p>Works on R&amp;D efforts within NDIF; PhD from the University of Groningen; previously applied scientist intern at AWS AI and research scientist at Aindo.</p>
+</div>
+
+<div class="bio">
+  <span class="bio-name">Michael Ripa</span><span class="bio-role"> · Site Reliability Engineer</span>
+  <p>Builds and maintains NDIF's backend infrastructure, including model hosting and reliability.</p>
+</div>
+
+<div class="bio">
+  <span class="bio-name">Adam Belfki</span><span class="bio-role"> · Research Software Engineer</span>
+  <p>Contributes to the NNsight API and supports researchers using the NDIF platform.</p>
+</div>
+
+<div class="bio">
+  <span class="bio-name">Zikai Wang</span><span class="bio-role"> · Research Assistant</span>
+  <p>PhD student in Computer Science at Northeastern focused on distributed systems; works on backend optimization and scalable serving for NDIF and NNsight.</p>
+</div>
+
+<p class="team-label">Schmidt Sciences</p>
+
+<div class="bio">
+  <span class="bio-name">Peter Hase</span><span class="bio-role"> · AI Institute Fellow</span>
+  <p>AI Institute Fellow at Schmidt Sciences and Postdoctoral Researcher at the Stanford NLP Group; PhD from UNC Chapel Hill; research experience at Anthropic, Meta, Google, and AI2 on AI safety and interpretability.</p>
+</div>
+
+<p class="team-label">Advisory Board</p>
+<ul>
+  <li><strong>David Bau</strong> (Chair) — NDIF Director and PI; Assistant Professor of Computer Science, Northeastern University</li>
+  <li><strong>Samuel Marks</strong> — Anthropic</li>
+  <li><strong>Chris Cundy</strong> — FAR.AI</li>
+  <li><strong>D. Sculley</strong> — Kaggle / OpenAI</li>
+</ul>
+
+<h2 id="eligibility">Eligibility</h2>
+<p>
+This competition is not directed at minors. Participants must be <strong>18 years of age or older</strong> to apply, compete, or receive prizes.
+</p>
+<p>
+US government-restricted/sanctioned parties are ineligible to participate. Prizes cannot be awarded to government-restricted/sanctioned parties. All potential winners must go through <a href="https://compliance.northeastern.edu/restricted-party-screening/" target="_blank" rel="noopener">Northeastern's Restricted Party Screening</a>.
+</p>
+<p>
+Government employees and officials must obtain a release and/or affirmative permission from their employer before any prize can be awarded, per government gift and ethics restrictions. Potential winners in this category will be connected with <a href="mailto:compliance@northeastern.edu">compliance@northeastern.edu</a> to discuss prior to prize announcement.
+</p>
+<p>
+Contest organizers, dataset builders, and any other individuals with knowledge about the dataset design may not participate.
+</p>
+<p>
+Each individual may only be part of one team.
+</p>
+<p>
+Prize eligibility is determined at the individual level. If a team includes members who are ineligible to receive prizes (e.g., government employees pending release), eligible members may still receive their proportional share, subject to organizer discretion and compliance review.
+</p>
+<p>
+Please note that U.S. participants with some type of immigration status (e.g., international students) may have restrictions on award collection so as not to trigger a violation of immigration status. Participants in this category will need to discuss with their personal attorney and/or potentially their host organization or institution for guidance on how or whether participating and collecting prize money could be considered a violation. These persons are still eligible to participate and may be able to receive prize money pending these conversations.
+</p>
+<p>
+By making a submission, you agree that all submissions, code, and associated materials will be made publicly available under an open-source license (<strong>MIT license</strong>) during and following the competition. By submitting, participants grant the organizers a perpetual, royalty-free license to publish and reproduce their submissions as part of the competition report and public repository. Participants retain authorship credit for their work.
+</p>
+
+<h2 id="contact">Contact</h2>
+<p>
+Questions? Reach us on the competition Discord or at <a href="mailto:competition@cadenzalabs.org">competition@cadenzalabs.org</a>. Rule clarifications and deadline updates are posted to the Discord announcements channel and this website.
+</p>
+<p>
+  <a class="btn" href="https://discord.gg/4NX3sUC4ge" target="_blank" rel="noopener">Join Discord</a>
+  <a class="btn btn-outline" href="mailto:competition@cadenzalabs.org">Email Us</a>
+</p>
+
+<div class="meander"></div>
+<footer>
+  <ul class="footer-links">
+    <li><a href="index.html">Competition</a></li>
+    <li><a href="winners.html">Winners</a></li>
+  </ul>
+  Aletheia's Quest
+</footer>
+
+</div>
+</body>
+</html>
