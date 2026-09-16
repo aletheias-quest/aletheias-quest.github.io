@@ -737,6 +737,7 @@ ul.q span { color: var(--muted); }
   font-style: italic;
   font-size: 0.95rem;
   margin: 1.6rem 0;
+  text-align: center;
 }
 .note strong { font-style: normal; color: var(--gold); }
 
