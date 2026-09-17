@@ -646,8 +646,8 @@ ul.q span { color: var(--muted); }
 
 /* ---- Final-submissions donut (inside a stat box) ---- */
 .donut {
-  width: 5.2rem;
-  height: 5.2rem;
+  width: 6.24rem;
+  height: 6.24rem;
   margin: 0.1rem auto 0.1rem;
   border-radius: 50%;
   /* Black box 40% from 12 o'clock clockwise, white box the remaining 60% */
