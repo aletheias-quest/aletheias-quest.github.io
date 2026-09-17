@@ -16,7 +16,7 @@
 <meta name="twitter:description" content="Build lie detectors for language models. A competition by Cadenza Labs and NDIF — white-box and black-box tracks, $50,000 prize pool. Summer 2026 via NNsight.">
 <meta name="twitter:image" content="https://aletheias-quest.github.io/social-preview.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -38,7 +38,7 @@
 </header>
 
 <p class="prologue">
-Ἀλήθεια, Aletheia, is the ancient Greek spirit of truth. Her name means <em>un-hiddenness</em>: that which has not been concealed. She stands against Lethe, river of oblivion, and against the lie, the utterance that buries what is known. This competition takes her name, and her question: when a language model speaks, does it reveal, or does it conceal?
+Ἀλήθεια, Aletheia, is the ancient Greek spirit of truth. Her name means un-hiddenness: that which has not been concealed. She stands against Lethe, river of oblivion, and against the lie, the utterance that buries what is known. This competition takes her name, and her question: when a language model speaks, does it reveal, or does it conceal?
 </p>
 
 <p style="text-align:center; margin: 1.5rem 0 2rem;">
@@ -77,10 +77,10 @@ Teams with the best-performing and most innovative methods received monetary awa
 
 <h3>Definition of Lying</h3>
 <p>
-We adopt an assertion-based definition, as operationalized in <a href="https://arxiv.org/abs/2511.16035" target="_blank" rel="noopener"><em>Liars' Bench</em></a> (Kretschmar et al., 2025): the assistant lies if it states something it believes to be false. Beliefs are measured through consistent demonstrations of knowledge, including in contexts without direct pressure to lie.
+We adopt an assertion-based definition, as operationalized in <a href="https://arxiv.org/abs/2511.16035" target="_blank" rel="noopener">Liars' Bench</a> (Kretschmar et al., 2025): the assistant lies if it states something it believes to be false. Beliefs are measured through consistent demonstrations of knowledge, including in contexts without direct pressure to lie.
 </p>
 <p>
-See Section 3 in <a href="https://arxiv.org/abs/2511.16035" target="_blank" rel="noopener"><em>Liars' Bench</em></a> for more details.
+See Section 3 in <a href="https://arxiv.org/abs/2511.16035" target="_blank" rel="noopener">Liars' Bench</a> for more details.
 </p>
 
 <h2 id="timeline">Timeline <span style="font-size:0.6em; font-weight:normal; letter-spacing:0.1em; opacity:0.7">(Summer 2026)</span></h2>
@@ -110,7 +110,7 @@ Organizers rated lie detection team applications by their team and technical app
 
 <h3>Goal</h3>
 <p>
-Develop a lie detection method and implement it for each AI in the competition's lineup. Samples are labeled <em>lie</em> or <em>honest</em>; detectors output a real-valued lie score. Teams are ranked by <strong>mean AUROC</strong>: calculated on each dataset and then averaged across all test datasets. AUROC is threshold-free, so it scores the quality of a method's lie scores without depending on where the method sets its decision boundary.
+Develop a lie detection method and implement it for each AI in the competition's lineup. Samples are labeled lie or honest; detectors output a real-valued lie score. Teams are ranked by <strong>mean AUROC</strong>: calculated on each dataset and then averaged across all test datasets. AUROC is threshold-free, so it scores the quality of a method's lie scores without depending on where the method sets its decision boundary.
 </p>
 
 <h3>What you can do</h3>
@@ -133,7 +133,7 @@ Develop a lie detection method and implement it for each AI in the competition's
   <li>A method qualifies for the white-box track (see below) only if white-box access (weights or activations) is a necessary input to the detector's final score — i.e., removing it changes the score beyond noise on the validation set. If the judges assert that this is not the case, the method will be reclassified as black-box before winners are determined. Example: Including a white-box probe or activation read whose output is ignored, overridden, or contributes negligibly to the final lie score, in order to qualify for white-box track prizes.</li>
 
 </ul>
-<p><em>Amendments to Rules and Technical Specifications: The Organizers reserve the right to modify, update, or change these Official Rules at any time. Any changes will be communicated promptly via the official competition Discord. Continued participation following any such modification constitutes acceptance of the revised rules.</em></p>
+<p>Amendments to Rules and Technical Specifications: The Organizers reserve the right to modify, update, or change these Official Rules at any time. Any changes will be communicated promptly via the official competition Discord. Continued participation following any such modification constitutes acceptance of the revised rules.</p>
 
 <h3>Competition Phases</h3>
 <p>
@@ -149,7 +149,7 @@ The competition runs in two phases. In the <strong>Main Phase</strong> (June 29 
   <li>Code for reproducing the training of any parameters used by your main method.</li>
   <li>A form declaring the category of your submission (e.g., white box or black box), attesting that you agree to abide by the rules and identifying your registered team number.</li>
 </ul>
-<p><em>Note: there is an upper limit on submission size (currently 200 MB), and the number of allowed daily submissions may be rate limited. Submission size and rate limits are subject to change.</em></p>
+<p>Note: there is an upper limit on submission size (currently 200 MB), and the number of allowed daily submissions may be rate limited. Submission size and rate limits are subject to change.</p>
 <p>
 Organizers will run your notebook in a controlled NDIF environment against held-out test data. Your submission may be disqualified if it is misconfigured, cannot complete within the time or resource budget allotted, does not include a report accurately describing your approach, does not include reproducible training code, or if you have not obtained a team number or agreed to the rules.
 </p>
@@ -171,7 +171,7 @@ After the competition, the judging panel reviews each submission for detection l
 Each submission is scored per (model organism, dataset) unit using <strong>AUROC</strong>, averaged across all datasets. To win a placed prize, a method must also beat the strongest organizer baseline in its own track.
 </p>
 <p>
-<em>Change from the original rules:</em> this competition was first announced as ranking on balanced accuracy, with AUROC as a tie-breaker. During the development phase we found that many methods were setting their decision thresholds from statistics of the batch or dataset being classified — which lets a method exploit structure in the test set, such as its class balance, that would not be available when judging each sample on its own. Our rules had not explicitly forbidden it. Rather than disqualify many solutions or force teams to rework their thresholds just before the deadline, we moved the main prize pool to AUROC, which is threshold-free. The change took effect for the final held-out datasets and for leaderboard ordering from that Monday onward; that week's leaderboard prizes were still settled on balanced accuracy. The development phase was extended to <strong>July 29th, AOE</strong> to give teams time to adjust.
+Change from the original rules: this competition was first announced as ranking on balanced accuracy, with AUROC as a tie-breaker. During the development phase we found that many methods were setting their decision thresholds from statistics of the batch or dataset being classified — which lets a method exploit structure in the test set, such as its class balance, that would not be available when judging each sample on its own. Our rules had not explicitly forbidden it. Rather than disqualify many solutions or force teams to rework their thresholds just before the deadline, we moved the main prize pool to AUROC, which is threshold-free. The change took effect for the final held-out datasets and for leaderboard ordering from that Monday onward; that week's leaderboard prizes were still settled on balanced accuracy. The development phase was extended to <strong>July 29th, AOE</strong> to give teams time to adjust.
 </p>
 <p>
 In addition to automatic scoring, a judging panel handles rule enforcement and awards special-category prizes: <strong>Scientific Novelty</strong> (innovative and creative methods) and <strong>Scalability</strong> (low inference compute, fewer privileged affordances).
@@ -224,12 +224,12 @@ Total prize pool of <strong>$50,000</strong>. Prizes are split evenly across tea
 
 <div class="bio">
   <span class="bio-name">Walter Laurito</span><span class="bio-role"> · Co-Scientific Lead</span>
-  <p>Leads and conducts research at Cadenza Labs. He co-authored <a href="https://arxiv.org/abs/2511.16035" target="_blank" rel="noopener"><em>Liars' Bench</em></a> and previously contributed to the <code>inspect_ai</code> evaluation library at the UK AI Security Institute. PhD student at KIT / FZI</p>
+  <p>Leads and conducts research at Cadenza Labs. He co-authored <a href="https://arxiv.org/abs/2511.16035" target="_blank" rel="noopener">Liars' Bench</a> and previously contributed to the <code>inspect_ai</code> evaluation library at the UK AI Security Institute. PhD student at KIT / FZI</p>
 </div>
 
 <div class="bio">
   <span class="bio-name">Kieron Kretschmar</span><span class="bio-role"> · Co-Scientific Lead</span>
-  <p>Researcher at Cadenza Labs and doctoral researcher at the University of Stuttgart studying evaluation awareness. Co-authored <a href="https://arxiv.org/abs/2511.16035" target="_blank" rel="noopener"><em>Liars' Bench</em></a>; M.Sc. cum laude from the University of Amsterdam.</p>
+  <p>Researcher at Cadenza Labs and doctoral researcher at the University of Stuttgart studying evaluation awareness. Co-authored <a href="https://arxiv.org/abs/2511.16035" target="_blank" rel="noopener">Liars' Bench</a>; M.Sc. cum laude from the University of Amsterdam.</p>
 </div>
 
 <div class="bio">

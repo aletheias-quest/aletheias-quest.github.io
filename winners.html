@@ -16,7 +16,7 @@
 <meta name="twitter:description" content="The Aletheia’s Quest competition brought together researchers building model organisms trained to lie in undisclosed settings and researchers developing methods to detect their lies. Results reveal promising approaches and persistent challenges with reliable generalization.">
 <meta name="twitter:image" content="https://aletheias-quest.github.io/social-preview.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -41,10 +41,10 @@ The Aletheia’s Quest competition brought together researchers building model o
 </p>
 
 <p>
-Language models occasionally <a href="https://aclanthology.org/2024.acl-long.770/" target="_blank" rel="noopener">confabulate</a>, hallucinating false answers while often adopting an overly confident tone. However, not all mistakes stem from a lack of knowledge: models can also <em>lie</em>. That is, they can make statements they <em>know</em> to be false. What methods best detect whether a model lied, and how much does white-box access (weights, activations, activation steering) contribute beyond black-box tools alone?
+Language models occasionally <a href="https://aclanthology.org/2024.acl-long.770/" target="_blank" rel="noopener">confabulate</a>, hallucinating false answers while often adopting an overly confident tone. However, not all mistakes stem from a lack of knowledge: models can also lie. That is, they can make statements they know to be false. What methods best detect whether a model lied, and how much does white-box access (weights, activations, activation steering) contribute beyond black-box tools alone?
 </p>
 <p>
-These questions motivated <a href="index.html">Aletheia’s Quest</a>, an LLM lie-detection competition organized by <a href="https://cadenzalabs.org/" target="_blank" rel="noopener">Cadenza Labs</a>, the <a href="https://ndif.us/" target="_blank" rel="noopener">National Deep Inference Fabric (NDIF)</a> at <a href="https://www.northeastern.edu/" target="_blank" rel="noopener">Northeastern University</a>, and funded by <a href="https://www.schmidtsciences.org/" target="_blank" rel="noopener">Schmidt Sciences</a>. Over the summer, red teams built datasets and trained custom suspect models lying in different undisclosed circumstances, while blue teams developed detectors using either <em>black-box</em> access to models’ inputs and outputs, or <em>white-box</em> access to the internals of suspect models. On August 25, invited teams met in Boston to share their approaches, discuss results, and debate what the field should try next.
+These questions motivated <a href="index.html">Aletheia’s Quest</a>, an LLM lie-detection competition organized by <a href="https://cadenzalabs.org/" target="_blank" rel="noopener">Cadenza Labs</a>, the <a href="https://ndif.us/" target="_blank" rel="noopener">National Deep Inference Fabric (NDIF)</a> at <a href="https://www.northeastern.edu/" target="_blank" rel="noopener">Northeastern University</a>, and funded by <a href="https://www.schmidtsciences.org/" target="_blank" rel="noopener">Schmidt Sciences</a>. Over the summer, red teams built datasets and trained custom suspect models lying in different undisclosed circumstances, while blue teams developed detectors using either black-box access to models’ inputs and outputs, or white-box access to the internals of suspect models. On August 25, invited teams met in Boston to share their approaches, discuss results, and debate what the field should try next.
 </p>
 
 <p class="note"><strong>Note:</strong> A more detailed <a href="#report">competition report</a> will be published later.</p>
