@@ -3786,9 +3786,7 @@ For the NDIF team, this was a concrete test of shared infrastructure for AI audi
 </div>
 
 
-<h2 id="methodology">Scoring &amp; Methodology</h2>
-
-<h3>Why AUROC, and not balanced accuracy</h3>
+<h2>Why AUROC, and not balanced accuracy</h2>
 <p>
 Methods were originally ranked on balanced accuracy, but we noticed that many submitted
 methods set their decision thresholds from statistics of the batch or dataset being
@@ -3804,7 +3802,7 @@ submissions were ranked by mean AUROC computed separately on each held-out datas
 across datasets.
 </p>
 
-<h3>Baselines</h3>
+<h2>Baselines</h2>
 <p>
 To be eligible to win awards, methods needed to score a higher average AUROC than the
 strongest baseline in their own track. The white-box baselines performed considerably better
@@ -3817,19 +3815,6 @@ than the black-box ones, so we chose to have the two tracks carry different thre
     <tr><td>Black-box</td><td>LLM self eval</td><td>0.5090</td></tr>
   </tbody>
 </table>
-
-<h3>Below-chance scores on the &ldquo;Amphitrite&rdquo; scenario</h3>
-<p>
-As you explore the per-dataset scores, you may notice that nearly every method scores far
-below chance on the datasets codenamed <strong>Amphitrite</strong>. These labels have been checked and
-are correct. The Amphitrite model organisms behaved in the opposite way to what most
-detectors anticipated, which ended up misleading most lie detectors into rating lying
-responses as honest (and vice versa).
-</p>
-<p>
-We still include Amphitrite in every method's mean AUROC, pulling most of the headline
-averages down. Veritaserum was the only entrant to score well on it.
-</p>
 
 <h2 id="report">Competition Report</h2>
 <p>
