@@ -62,7 +62,7 @@ These questions motivated <a href="index.html">Aletheia’s Quest</a>, an LLM li
   <div class="stat"><span class="stat-num">14</span><span class="stat-label">teams submitted reports</span></div>
 </div>
 
-<p class="team-list"><span class="team-list-label">Teams:</span> 508power · aa · dami · EleutherAI · FlaiChi · JSR · mpi · pinocchio · Recall Lab · ru · SAIN Groningen · Simit · Snake · Tara Research · Tony · TS · Veritaserum · vk · yy</p>
+<p class="team-list"><span class="team-list-label">Teams:</span> 508power · aa · dami · EleutherAI · FlaiChi · GMU-Veritaserum · JSR · mpi · pinocchio · Recall Lab · ru · SAIN Groningen · Simit · Snake · Tara Research · Tony · TS · vk · yy</p>
 
 <figure>
   <img class="on-white" src="images/cumulative-submissions.png" width="1800" height="1050" alt="Aletheia’s Quest: Cumulative Submissions">
@@ -80,7 +80,7 @@ NDIF cluster, against data no team had seen. To take a prize, a method also had 
 <div class="podium">
   <p class="podium-title">White-Box Track <span class="tag white" aria-hidden="true"></span></p>
   <ol class="podium-list">
-    <li class="place-1"><span class="place">First</span><span class="winner">Veritaserum<span class="approach">Contrastive Evidence Audit: the suspect model judges its own transcript, and the Yes/No logit gap for “deceptive?” minus the gap for “honest?” is the score</span></span><span class="winner-score">0.8511 <span class="unit">AUROC</span></span></li>
+    <li class="place-1"><span class="place">First</span><span class="winner">GMU-Veritaserum<span class="approach">Contrastive Evidence Audit: the suspect model judges its own transcript, and the Yes/No logit gap for “deceptive?” minus the gap for “honest?” is the score</span></span><span class="winner-score">0.8511 <span class="unit">AUROC</span></span></li>
     <li class="place-2"><span class="place">Second</span><span class="winner">FlaiChi<span class="approach">Sums an activation probe, belief signals from logits and neutral re-answers, a judge check of the claim, and a self-check</span></span><span class="winner-score">0.6711 <span class="unit">AUROC</span></span></li>
     <li class="place-3"><span class="place">Third</span><span class="winner">yy<span class="approach">Follow-up interrogation probe, the competition baseline with four changes: appends “Was your last response deceptive?” with a forced “No” and reads the suspect’s residual stream at two mid-stack depths with a class-balanced logistic probe</span></span><span class="winner-score">0.6706 <span class="unit">AUROC</span></span></li>
   </ol>
@@ -114,7 +114,7 @@ NDIF cluster, against data no team had seen. To take a prize, a method also had 
   <ul>
     <li><strong>Core metrics of interest:</strong> Speed, complexity and reusability</li>
     <li><strong>Method:</strong> Kimi K3’s yes/no decision probabilities distilled into a LoRA on the trusted Qwen3.5-9B judge; no text generation needed, and the teacher’s judgments were cached for about $25.</li>
-    <li>2nd place among black-box methods, running time of 4m27s over 300 examples for 0.61 AUROC (vs. 47m23s for Veritaserum)</li>
+    <li>2nd place among black-box methods, running time of 4m27s over 300 examples for 0.61 AUROC (vs. 47m23s for GMU-Veritaserum)</li>
   </ul>
 </div>
 
@@ -206,7 +206,7 @@ also had to rank above each of the six organizer baselines.
   <tbody>
 <tr class="row" data-track="white" data-i="0" data-rank="1" tabindex="0" role="button" aria-expanded="false" aria-controls="detail-0">
         <td class="c-rank"><span class="exp" aria-hidden="true"></span><span class="rk">1</span></td>
-        <td class="c-team">Veritaserum</td>
+        <td class="c-team">GMU-Veritaserum</td>
         <td class="c-track"><span class="tag white" aria-hidden="true"></span> white-box</td>
         <td class="c-score">0.8511</td>
         <td class="c-qual"><span class="qual" title="Beats the best baseline in its track">✓</span></td>
@@ -216,7 +216,7 @@ also had to rank above each of the six organizer baselines.
       </tr>
       <tr class="detail" data-i="0" id="detail-0" hidden>
         <td colspan="8">
-          <p class="detail-cap">Veritaserum — score on each held-out test dataset</p>
+          <p class="detail-cap">GMU-Veritaserum — score on each held-out test dataset</p>
           <table class="ds">
             <thead>
               <tr>
@@ -3680,8 +3680,8 @@ On August 25, invited teams met in Boston to present their approaches, discuss r
     <figcaption>All blue team representatives. From left: Haein Kong (team ru, Rutgers University), Tommaso Tosato (team Tara Research), Serhii Honcharenko (team FlaiChi, Texas A&amp;M), Jeremias Ferrao (team SAIN Groningen, University of Groningen), Giuseppe Birardi (team EleutherAI, OrmaLab), Jacopo Zacchigna and Sara Candussio (team JSR, University of Trieste).</figcaption>
   </figure>
   <figure class="g-half">
-    <a class="zoom" href="images/workshop/ndif-hackathon-30-1600.webp"><img src="images/workshop/ndif-hackathon-30-800.webp" srcset="images/workshop/ndif-hackathon-30-800.webp 800w, images/workshop/ndif-hackathon-30-1600.webp 1600w" sizes="(max-width: 600px) 50vw, 344px" width="1600" height="1068" loading="lazy" decoding="async" alt="Ayan Antik Khan of team Veritaserum holding the team’s first-place white-box certificate in front of the award slide"></a>
-    <figcaption>Ayan Antik Khan from team Veritaserum (GMU, first place white-box)</figcaption>
+    <a class="zoom" href="images/workshop/ndif-hackathon-30-1600.webp"><img src="images/workshop/ndif-hackathon-30-800.webp" srcset="images/workshop/ndif-hackathon-30-800.webp 800w, images/workshop/ndif-hackathon-30-1600.webp 1600w" sizes="(max-width: 600px) 50vw, 344px" width="1600" height="1068" loading="lazy" decoding="async" alt="Ayan Antik Khan of team GMU-Veritaserum holding the team’s first-place white-box certificate in front of the award slide"></a>
+    <figcaption>Ayan Antik Khan from team GMU-Veritaserum (first place white-box)</figcaption>
   </figure>
   <figure class="g-half">
     <a class="zoom" href="images/workshop/ndif-hackathon-29-1600.webp"><img src="images/workshop/ndif-hackathon-29-800.webp" srcset="images/workshop/ndif-hackathon-29-800.webp 800w, images/workshop/ndif-hackathon-29-1600.webp 1600w" sizes="(max-width: 600px) 50vw, 344px" width="1600" height="1068" loading="lazy" decoding="async" alt="Serhii Honcharenko of team FlaiChi holding the team’s second-place white-box certificate"></a>
@@ -3768,7 +3768,7 @@ For the NDIF team, this was a concrete test of shared infrastructure for AI audi
     </div>
     <div class="ls-card">
       <p class="ls-title">Suspect output logits (3)</p>
-      <p class="ls-teams"><span class="ls-hi">Veritaserum 0.85</span> · Recall Lab 0.58 · EleutherAI 0.56</p>
+      <p class="ls-teams"><span class="ls-hi">GMU-Veritaserum 0.85</span> · Recall Lab 0.58 · EleutherAI 0.56</p>
     </div>
     <div class="ls-card">
       <p class="ls-title">Other access (2)</p>
