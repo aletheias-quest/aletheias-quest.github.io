@@ -1,2 +1,5 @@
 .DS_Store
 datasets.html
+
+# original full-size workshop photos (webp versions are published)
+images/workshop/*.jpg
