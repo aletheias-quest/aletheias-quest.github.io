@@ -1063,3 +1063,15 @@ table.ds td.d-sec { color: var(--muted); }
   line-height: 1.45;
 }
 .ledger tr.detail table.ds td.d-name { white-space: normal; }
+
+/* BibTeX citation block */
+pre.cite {
+  background: rgba(201,168,90,0.08);
+  border-left: 2px solid var(--gold);
+  padding: 0.9rem 1rem;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  margin: 1rem 0 1.5rem;
+}
+pre.cite code { background: none; padding: 0; font-size: 0.8rem; line-height: 1.5; }
